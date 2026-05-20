@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+
+<meta property="og:title" content="COSMION · 奥特曼百科 ULTRABASE — 56位英雄+23怪兽全谱系图">
+<meta property="og:description" content="56位奥特曼+23怪兽+武器装备，带SABCD评级系统和家族关系。新手入门推荐路线，亲子互动问答游戏。妈妈整理，免费开放。">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_CN">
+<meta name="description" content="COSMION | 奥特曼百科 ULTRABASE — 完整角色谱系图，含56位奥特曼、23只怪兽、武器装备图鉴。SABCD评级系统、血缘树、宿敌对战卡、亲子问答游戏。新手友好，三语切换。">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ULTRABASE · 奥特曼百科">
+<meta name="twitter:description" content="56位奥特曼+23怪兽全谱系图，带评级和亲子问答">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COSMION | 奥特曼百科 ULTRABASE — 全角色谱系图·评级·亲子问答</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:linear-gradient(135deg,#0a0015,#0d0020,#000520,#0a0015);color:#e0d5c0;min-height:100vh;background-attachment:fixed}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:#0d0020}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#3366ff,#ff3355);border-radius:4px}
+header{background:linear-gradient(135deg,#0d0020,#0a0015,#000520);padding:18px 30px;text-align:center;border-bottom:2px solid;border-image:linear-gradient(90deg,#3366ff,#ff3355)1;position:relative}
+header h1{font-size:2em;background:linear-gradient(135deg,#3366ff,#ff3355);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:4px}
+header p{color:#8899bb;font-size:1em;margin-top:4px}
+.lang-bar{position:absolute;top:14px;right:20px;display:flex;gap:4px}
+.lang-btn{padding:3px 10px;border-radius:12px;border:1px solid rgba(100,150,255,.3);background:transparent;color:#8899bb;cursor:pointer;font-size:.7em;transition:all .2s}
+.lang-btn:hover,.lang-btn.on{border-color:#6699ff;color:#fff;background:linear-gradient(135deg,#3366ff,#ff3355)}
+.search-bar{background:rgba(0,5,32,.8);padding:10px 20px;display:flex;justify-content:center;gap:8px;border-bottom:1px solid rgba(100,150,255,.15);flex-wrap:wrap}
+.search-bar input{background:rgba(10,0,21,.8);border:1px solid rgba(100,150,255,.25);color:#e0d5c0;padding:7px 14px;border-radius:18px;width:260px;font-size:.95em;outline:none}
+.search-bar input:focus{border-color:#3366ff;box-shadow:0 0 12px rgba(51,102,255,.2)}
+.tab-nav{display:flex;background:rgba(0,5,32,.9);border-bottom:2px solid rgba(100,150,255,.15);overflow-x:auto}
+.tab-btn{padding:12px 18px;background:transparent;border:none;color:#556688;cursor:pointer;font-size:.92em;font-weight:600;transition:all .3s;white-space:nowrap;position:relative}
+.tab-btn:hover{color:#88bbff}
+.tab-btn.on{color:#88bbff}
+.tab-btn.on::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:3px;background:linear-gradient(90deg,#3366ff,#ff3355);border-radius:2px}
+.tab-page{display:none;padding:20px;max-width:1400px;margin:0 auto;animation:fadeIn .3s}
+.tab-page.on{display:block}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.intro-banner{background:linear-gradient(135deg,rgba(30,0,50,.6),rgba(0,20,60,.6));border:1px solid rgba(100,150,255,.25);border-radius:12px;padding:18px 22px;margin-bottom:20px}
+.intro-banner h2{background:linear-gradient(135deg,#6699ff,#ff5577);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:1.2em;margin-bottom:6px}
+.intro-banner p{color:#99aabb;line-height:1.8;font-size:.95em}
+.section-title{font-size:1.25em;margin:20px 0 12px;padding-bottom:6px;border-bottom:1px solid rgba(100,150,255,.12);background:linear-gradient(135deg,#6699ff,#ff5577);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+.char-card{background:linear-gradient(135deg,rgba(30,0,50,.5),rgba(0,20,60,.5));border:1px solid rgba(100,150,255,.2);border-radius:12px;overflow:hidden;cursor:pointer;transition:all .25s cubic-bezier(.25,.8,.25,1.2)}
+.char-card:hover{transform:translateY(-8px) scale(1.05);border-color:rgba(100,150,255,.6);box-shadow:0 0 40px rgba(51,102,255,.3),0 12px 30px rgba(0,0,0,.4);z-index:5}
+.char-card.monster{border-color:rgba(255,50,80,.2)}
+.char-card.monster:hover{border-color:rgba(255,50,80,.6);box-shadow:0 0 40px rgba(255,50,80,.3),0 12px 30px rgba(0,0,0,.4)}
+
+.char-card .ci{position:relative}
+.char-card .ci-skeleton{position:absolute;inset:0;background:linear-gradient(90deg,#1a1a35 25%,#2a2a50 50%,#1a1a35 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:0}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.char-card .ci{width:100%;height:220px;object-fit:contain;background:linear-gradient(180deg,rgba(10,0,21,.8),rgba(0,20,60,.5));padding:10px}
+.char-card .cb{padding:10px 12px}
+.char-card .cb h3{color:#88bbff;font-size:1.05em;margin-bottom:1px}
+.char-card .cb .en{color:#556688;font-size:.78em}
+.char-card .cb .stars{display:flex;gap:6px;margin-top:5px;flex-wrap:wrap;font-size:.75em}
+.char-card .cb .stars span{font-size:.78em;padding:1px 5px;border-radius:3px;display:inline-flex;align-items:center;gap:2px}
+.rating-S{background:linear-gradient(135deg,#ffd700,#ffaa00);color:#1a0a00;padding:1px 6px;border-radius:3px;font-size:.7em;font-weight:700}
+.rating-A{background:linear-gradient(135deg,#ff5577,#cc3355);color:#fff}
+.rating-B{background:linear-gradient(135deg,#3366ff,#2255cc);color:#fff}
+.rating-C{background:#445566;color:#ccc}
+.rating-D{background:#333344;color:#888}
+.rating-tag{padding:2px 6px;border-radius:3px;font-size:.72em;font-weight:700;display:inline-block;margin-right:2px}
+.d-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(4px);z-index:1000;padding:20px;overflow-y:auto}
+.d-overlay.on{display:flex;justify-content:center;align-items:flex-start}
+.d-card{background:linear-gradient(135deg,rgba(20,0,40,.95),rgba(0,15,50,.95));border:2px solid;border-image:linear-gradient(135deg,#3366ff,#ff3355)1;border-radius:14px;max-width:650px;width:100%;padding:24px;animation:popIn .3s ease-out;margin-top:40px;position:relative}
+@keyframes popIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+.d-card .close{position:absolute;top:10px;right:16px;background:none;border:none;color:#556688;font-size:1.4em;cursor:pointer;z-index:2}
+.d-card .close:hover{color:#ff5577}
+.d-card .di{width:180px;height:220px;object-fit:contain;float:left;margin-right:16px;margin-bottom:8px;background:rgba(10,0,21,.6);border-radius:10px;padding:8px}
+.d-card h2{background:linear-gradient(135deg,#6699ff,#ff5577);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:1.35em}
+.d-card .de{color:#445577;font-size:.8em;margin-bottom:4px}
+.d-card .ds{color:#8899bb;font-size:.8em}
+.d-card .dst{color:#aabbcc;line-height:1.8;padding-top:10px;font-size:.9em;clear:both}
+.d-card table{width:100%;border-collapse:collapse;margin-top:10px}
+.d-card th{text-align:left;color:#6699ff;padding:6px 8px;border-bottom:1px solid rgba(100,150,255,.12);font-size:.82em}
+.d-card td{padding:5px 8px;border-bottom:1px solid rgba(100,150,255,.06);font-size:.85em;color:#99aabb}
+.env-tag{display:inline-block;padding:2px 8px;border-radius:8px;font-size:.7em;margin-right:4px}
+.env-space{background:rgba(100,150,255,.15);color:#88bbff}
+.env-forest{background:rgba(100,200,100,.15);color:#88dd88}
+.env-city{background:rgba(200,180,100,.15);color:#ddcc88}
+.env-ocean{background:rgba(80,150,200,.15);color:#88ccdd}
+.sub-tabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
+.sub-tab-btn{padding:8px 16px;border-radius:8px;border:1px solid rgba(100,150,255,.25);background:rgba(10,0,21,.6);color:#8899bb;cursor:pointer;font-size:.82em;font-weight:600;transition:all .2s}
+.sub-tab-btn:hover,.sub-tab-btn.on{border-color:#6699ff;color:#fff;background:linear-gradient(135deg,#3366ff,#ff3355)}
+.tree-card{background:rgba(15,10,40,.6);border:1px solid rgba(100,150,255,.15);border-radius:12px;padding:16px;margin-bottom:16px}
+.tree-card h3{color:#88bbff;text-align:center;margin-bottom:12px}
+.tree-row{display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap}
+.tree-node{text-align:center;cursor:pointer;padding:6px}
+.tree-node img{width:56px;height:80px;object-fit:cover;object-position:top;border-radius:8px;border:2px solid #c9a84c;background:#1a1a3a}
+.tree-node .tn{font-size:.72em;color:#ddd;margin-top:3px}
+.tree-connector{text-align:center;color:#c9a84c;font-size:1.2em;padding:4px 0}
+
+.cn-blood{color:#c9a84c;font-size:1.2em;padding:2px 0;text-align:center}
+.cn-teacher{color:#ff8c42;font-size:1.2em;padding:2px 0;text-align:center}
+.cn-genetic{color:#ff3355;font-size:1.2em;padding:2px 0;text-align:center}
+.cn-fusion{color:#44aa66;font-size:1.2em;padding:2px 0;text-align:center}
+.cn-marriage{color:#ff69b4;font-size:1.2em;padding:2px 0;text-align:center}
+.cn-label{font-size:.6em;display:block;line-height:1.2}
+
+.duel-pair{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap;justify-content:center}
+.duel-card{background:linear-gradient(145deg,#1a1a35,#12122a);border:2px solid #c9a84c;border-radius:14px;padding:14px;text-align:center;width:170px;cursor:pointer;transition:all .25s;box-shadow:0 0 18px rgba(201,168,76,.1)}
+.duel-card:hover{transform:translateY(-6px) scale(1.05);box-shadow:0 0 35px rgba(201,168,76,.3)}
+.duel-card.foe{border-color:#ff3355;box-shadow:0 0 18px rgba(255,50,80,.1)}
+.duel-card.foe:hover{box-shadow:0 0 35px rgba(255,50,80,.3)}
+.duel-card .dc-img{width:80px;height:110px;object-fit:contain;margin:0 auto 6px}
+.duel-card .dc-name{font-weight:bold;font-size:.9em;color:#88bbff}
+.duel-card.foe .dc-name{color:#ff5577}
+.duel-card .dc-en{font-size:.65em;color:#556688}
+.vs-panel{text-align:center;min-width:80px}
+.vs-text{font-size:2em;font-weight:900;background:linear-gradient(135deg,#3366ff,#ff3355);-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:vsPulse 1.5s ease-in-out infinite}
+@keyframes vsPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+.vs-desc{font-size:.68em;color:#8899bb;margin-top:4px;line-height:1.3}
+.quiz-game{text-align:center;padding:20px}
+
+.battle-cards{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;margin:16px 0}
+.battle-card{background:linear-gradient(145deg,#1a1a35,#12122a);border:2px solid #c9a84c;border-radius:14px;padding:16px;text-align:center;width:150px;transition:all .3s}
+.battle-card img{width:70px;height:100px;object-fit:cover;object-position:top;border-radius:8px;background:#1a1a3a}
+.battle-card .bt-name{font-weight:bold;color:#88bbff;font-size:.9em;margin-top:6px}
+.battle-card .bt-stat{font-size:.75em;color:#c9a84c;margin-top:4px}
+.battle-winner{animation:battleWin .6s ease-out}
+@keyframes battleWin{0%{transform:scale(1)}50%{transform:scale(1.15);border-color:#ffd700;box-shadow:0 0 30px rgba(255,215,0,.5)}100%{transform:scale(1)}}
+.battle-loser{opacity:.5}
+.battle-vs{font-size:1.5em;font-weight:900;color:#ff3355;animation:vsPulse 1s ease-in-out infinite}
+.battle-result{text-align:center;font-size:1.1em;color:#ffd700;margin:10px 0;min-height:30px}
+.quiz-game button{padding:8px 18px;border-radius:6px;border:none;background:linear-gradient(135deg,#3366ff,#ff3355);color:#fff;cursor:pointer;font-weight:bold;margin:4px;font-size:.85em}
+footer{text-align:center;padding:24px;border-top:1px solid rgba(100,150,255,.1);margin-top:30px;color:#556688;font-size:.72em;line-height:2}
+/* Route cards */
+.route-section{margin:24px 0 10px}
+.route-cards{display:flex;flex-wrap:nowrap;gap:8px;justify-content:center;align-items:stretch;overflow-x:auto;padding:4px 0}
+.route-card{background:linear-gradient(135deg,rgba(30,0,50,.5),rgba(0,20,60,.5));border:1px solid rgba(100,150,255,.2);border-radius:10px;padding:16px;min-width:155px;flex:1;max-width:240px;text-align:center;transition:all .2s;cursor:pointer}
+.route-card:hover{transform:translateY(-4px);border-color:rgba(100,150,255,.5)}
+.route-card-label{font-size:.65em;color:#c9a84c;font-weight:600;margin-bottom:4px;letter-spacing:1px}
+.route-card-name{font-size:1.05em;color:#88bbff;font-weight:bold}
+
+
+.eps-list{display:none;margin-top:8px;max-height:180px;overflow-y:auto;text-align:left;font-size:.68em;color:#99aabb;line-height:1.7;background:rgba(0,0,0,.2);border-radius:6px;padding:6px 8px}
+.eps-list.open{display:block}
+.eps-list span{display:inline-block;width:26px;color:#556688;text-align:right;margin-right:6px}
+.route-card-year{font-size:.7em;color:#556688;margin:2px 0}
+.route-card-arrow-icon{font-size:1em;color:#ff5577;margin:5px 0;opacity:.8}
+.route-card-reason{font-size:.75em;color:#99aabb;line-height:1.6;padding-top:8px;border-top:1px solid rgba(100,150,255,.1);text-align:left}
+.route-connector{display:flex;align-items:center;color:#334466;font-size:1.8em;flex-shrink:0;padding:0 2px}
+@media(max-width:768px){.route-cards{flex-wrap:wrap}.route-card{max-width:none;min-width:130px}}
+/* Worldview */
+.worldview-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:10px;margin-top:10px}
+.worldview-item{padding:12px 14px;border-radius:10px;border:1px solid rgba(100,150,255,.12);background:rgba(15,10,40,.4);transition:all .2s}
+.worldview-item:hover{transform:translateY(-2px);border-color:rgba(100,150,255,.35)}
+.worldview-item h4{font-size:.86em;margin-bottom:3px;display:flex;align-items:center;gap:6px;color:#bbccdd}
+.worldview-item .wv-desc{font-size:.72em;color:#8899bb;line-height:1.5;margin-top:3px}
+.worldview-item .wv-chars{font-size:.68em;color:#556688;margin-top:3px;font-style:italic}
+/* Host info in detail */
+.d-host{margin:10px 0 6px;padding:8px 14px;background:rgba(201,168,76,.1);border-left:3px solid #c9a84c;border-radius:6px;font-size:.88em;color:#e8d48b;clear:both;font-weight:500}
+.d-host-label{font-weight:600;margin-right:4px}
+@media(max-width:768px){.card-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}.char-card .ci{height:150px}.d-card .di{width:100px;height:120px}.duel-pair{flex-direction:column}}
+</style>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
+</head>
+<body>
+<header>
+<div class="lang-bar"><button class="lang-btn on" onclick="sl('zh')">中文</button><button class="lang-btn" onclick="sl('en')">EN</button><button class="lang-btn" onclick="sl('ja')">日本語</button></div>
+<h1><span style="font-size:.7em;color:#c9a84c;vertical-align:middle">🌌</span> COSMION <span style="font-size:.5em;color:#8899bb;vertical-align:middle;letter-spacing:2px">奥特曼 · ULTRABASE</span></h1><p style="color:#8899bb">奥特曼完整谱系图 · 1966—2024 · 56位英雄+23怪兽</p>
+</header>
+<div class="search-bar"><input type="text" id="sIn" placeholder="搜索角色中文/英文名..." oninput="doSearch()"></div>
+<div class="tab-nav">
+<button class="tab-btn on" data-tab="beginner">快速入门</button>
+<button class="tab-btn" data-tab="roster">角色图鉴</button>
+<button class="tab-btn" data-tab="family">血缘树</button>
+<button class="tab-btn" data-tab="rivals">宿敌对战</button>
+<button class="tab-btn" data-tab="quiz">游戏问答</button>
+</div>
+<div class="tab-page on" id="tp-beginner">
+<div style="text-align:center;padding:20px 0"><h2 id="ibWelcome" style="text-align:center">欢迎来到奥特曼的世界</h2><p id="ibIntro" style="text-align:center">奥特曼是日本经典科幻英雄系列，1966年至今播出50多部作品。他们来自M78星云光之国，是保护地球的巨人战士。<br>本图谱收录数十位奥特曼、怪兽和武器装备，附评级系统和家族关系。点击卡片查看详情。</p></div>
+<div class="section-title" id="ibEra">三大时代</div>
+<div style="display:grid;style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+<div class="char-card" style="border-left:3px solid #ffd700;cursor:pointer" onclick="showEraChars('showa')"><div style="padding:14px"><h3 style="color:#ffd700" id="ibShowa">昭和时代 1966-1980</h3><p style="color:#99aabb;font-size:.82em;line-height:1.5" id="ibShowaDesc">初代、赛文、杰克、艾斯、泰罗、雷欧、爱迪。大多来自光之国，风格严肃。</p></div></div>
+<div class="char-card" style="border-left:3px solid #3366ff;cursor:pointer" onclick="showEraChars('heisei')"><div style="padding:14px"><h3 style="color:#3366ff" id="ibHeisei">平成时代 1996-2012</h3><p style="color:#99aabb;font-size:.82em;line-height:1.5" id="ibHeiseiDesc">迪迦、戴拿、盖亚。高斯、奈克瑟斯、梦比优斯。诺亚、雷杰多登场。</p></div></div>
+<div class="char-card" style="border-left:3px solid #ff5577;cursor:pointer" onclick="showEraChars('newgen')"><div style="padding:14px"><h3 style="color:#ff5577" id="ibNewgen">新生代 2013至今</h3><p style="color:#99aabb;font-size:.82em;line-height:1.5" id="ibNewgenDesc">银河、欧布、捷德、泰迦、Z、布莱泽。融合变身为主流，Z获星云赏。</p></div></div>
+</div>
+<div class="section-title" id="ibRouteTitle">🎬 新手推荐观看路线</div>
+<p style="color:#8899bb;font-size:.82em;margin-bottom:10px" id="ibRouteHint">不知道从哪部开始？四条路线，按你的偏好选一条入坑。</p>
+<div class="route-cards">
+<div class="route-card" onclick="toggleEps('tiga',this)"><div class="route-card-label" id="r1l">🥇 经典入坑</div><div class="route-card-name" id="r1n">迪迦 Tiga (1996)</div><div class="route-card-year">52话 · 独立世界观</div><div class="route-card-reason" id="r1r">最安全的起点。中国观众最熟悉的奥特曼。独立世界观无需背景知识，三形态变换开创玩法。第52话所有孩子为迪迦举起手电筒——平成最经典的集体记忆。</div></div>
+<div class="route-connector">→</div>
+<div class="route-card" onclick="toggleEps('z',this)"><div class="route-card-label" id="r2l">🥈 当代首选</div><div class="route-card-name" id="r2n">泽塔 Z (2020)</div><div class="route-card-year">25话 · 短小精悍</div><div class="route-card-reason" id="r2r">最短最精悍。2020年日本星云赏获奖——奥特系列少数获主流科幻奖项认可。25话紧凑剧情，从半吊子成长为真正的战士。适合时间不多的你。</div></div>
+<div class="route-connector">→</div>
+<div class="route-card" onclick="toggleEps('mebius',this)"><div class="route-card-label" id="r3l">🥉 全明星盛宴</div><div class="route-card-name" id="r3n">梦比优斯 Mebius (2006)</div><div class="route-card-year">50话 · 昭和平成桥梁</div><div class="route-card-reason" id="r3r">六位昭和前辈每集轮流出场指导新人。最终话奥特兄弟全员集结——系列最壮观的全明星时刻。看完这部，你就认识所有昭和奥特曼了。</div></div>
+<div class="route-connector">→</div>
+<div class="route-card" onclick="toggleEps('blazar',this)"><div class="route-card-label" id="r4l">🚀 独立新作</div><div class="route-card-name" id="r4n">布莱泽 Blazar (2023)</div><div class="route-card-year">25话 · 独立宇宙</div><div class="route-card-reason" id="r4r">最不像奥特曼的奥特曼。不会说话，用嘴咬身体撞的野性战士。人间体是已婚父亲——系列首次。独立宇宙无需任何前置知识。新鲜、野性、有温度。</div></div>
+</div></div>
+<div class="tab-page" id="tp-roster">
+<div class="intro-banner" style="display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start">
+  <div style="flex:1;min-width:260px">
+    <h2 id="ibRosterTitle">角色图鉴</h2>
+    <p id="ibRosterDesc" style="margin-bottom:10px">切换下方标签浏览奥特曼、怪兽宇宙人和武器装备。点击卡片查看详情。</p>
+    <p style="color:#99aabb;line-height:1.7;font-size:.88em" id="ibRatingDesc">每个角色根据官方设定和实际战力表现，被划分为 <b style="color:#ffd700">S/A/B/C/D</b> 五个等级。评级综合考虑攻击力、防御力和特殊能力三个维度。S级为传说级存在（诺亚、奥特之王），D级为偏弱或搞笑角色。</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:6px;min-width:380px">
+    <div style="text-align:center;padding:10px 6px;background:rgba(255,215,0,.08);border-radius:8px;border:1px solid rgba(255,215,0,.15)"><div style="font-size:1.3em;color:#ffd700;font-weight:bold">S</div><div id="ibRatingS" style="color:#ffd700;font-size:.7em;margin-top:2px">传说级</div></div>
+    <div style="text-align:center;padding:10px 6px;background:rgba(255,85,119,.08);border-radius:8px;border:1px solid rgba(255,85,119,.15)"><div style="font-size:1.3em;color:#ff5577;font-weight:bold">A</div><div id="ibRatingA" style="color:#ff5577;font-size:.7em;margin-top:2px">顶尖级</div></div>
+    <div style="text-align:center;padding:10px 6px;background:rgba(51,102,255,.08);border-radius:8px;border:1px solid rgba(51,102,255,.15)"><div style="font-size:1.3em;color:#3366ff;font-weight:bold">B</div><div id="ibRatingB" style="color:#3366ff;font-size:.7em;margin-top:2px">优秀级</div></div>
+    <div style="text-align:center;padding:10px 6px;background:rgba(68,85,102,.08);border-radius:8px;border:1px solid rgba(68,85,102,.15)"><div style="font-size:1.3em;color:#667788;font-weight:bold">C</div><div id="ibRatingC" style="color:#667788;font-size:.7em;margin-top:2px">标准级</div></div>
+    <div style="text-align:center;padding:10px 6px;background:rgba(51,51,68,.08);border-radius:8px;border:1px solid rgba(51,51,68,.15)"><div style="font-size:1.3em;color:#555577;font-weight:bold">D</div><div id="ibRatingD" style="color:#555577;font-size:.7em;margin-top:2px">偏弱</div></div>
+  </div>
+</div>
+<div class="sub-tabs"><button class="sub-tab-btn on" data-stab="ultra">奥特曼</button><button class="sub-tab-btn" data-stab="monster">怪兽宇宙人</button><button class="sub-tab-btn" data-stab="weapon">武器装备</button></div>
+<div class="card-grid" id="grid-ultra"></div><div class="card-grid" id="grid-monster" style="display:none"></div><div class="card-grid" id="grid-weapon" style="display:none"></div>
+</div>
+<div class="tab-page" id="tp-family"><div class="intro-banner"><h2 id="ibFamilyTitle">血缘树 · 奥特曼家族</h2><p id="ibFamilyDesc">奥特曼系列中官方明确的亲子关系极少。金色实线=血缘，橙色虚线=师徒，红色虚线=遗传/合体。</p></div><div class="intro-banner"><h2 id="ibWVTitle">🌌 世界观速览</h2><p id="ibWVSub">奥特曼来自哪里？</p><div class="worldview-grid"><div class="worldview-item" style="border-left:3px solid #c9a84c"><h4>🟡 <span id="wv1t">M78星云·光之国</span></h4><div class="wv-desc" id="wv1d">绝大多数奥特曼的故乡</div><div class="wv-chars" id="wv1c">佐菲、初代、赛文、泰罗、梦比优斯...</div></div><div class="worldview-item" style="border-left:3px solid #ff8844"><h4>🟠 <span id="wv2t">L77星云·狮子座</span></h4><div class="wv-desc" id="wv2d">已被毁灭的王国</div><div class="wv-chars" id="wv2c">雷欧、阿斯特拉</div></div><div class="worldview-item" style="border-left:3px solid #44dd88"><h4>🟢 <span id="wv3t">O-50行星·战士之巅</span></h4><div class="wv-desc" id="wv3d">攀登者获力量</div><div class="wv-chars" id="wv3c">欧布、风马</div></div><div class="worldview-item" style="border-left:3px solid #4488ff"><h4>🔵 <span id="wv4t">超古代地球·3000万年前</span></h4><div class="wv-desc" id="wv4d">光之巨人的遗迹</div><div class="wv-chars" id="wv4c">迪迦、戴拿</div></div><div class="worldview-item" style="border-left:3px solid #bb66ff"><h4>🟣 <span id="wv5t">地球意志</span></h4><div class="wv-desc" id="wv5d">地球本身的化身</div><div class="wv-chars" id="wv5c">盖亚(大地)、阿古茹(海洋)</div></div></div></div><div id="familyArea"></div></div>
+<div class="tab-page" id="tp-rivals"><div class="intro-banner"><h2 id="ibRivalsTitle">宿敌对战</h2><p id="ibRivalsDesc">每位主要奥特曼都有一位命中注定的对手。点击卡牌查看详情。</p></div><div id="rivalsArea"></div></div>
+<div class="tab-page" id="tp-quiz"><div class="intro-banner"><h2 id="ibQuizTitle">亲子问答游戏</h2><p id="ibQuizDesc">考考你对奥特曼的了解！答对越多称号越高。</p></div><div id="quizArea" class="quiz-game"></div>
+<div id="battleArea" class="quiz-game"></div></div>
+<div class="d-overlay" id="dOverlay" onclick="if(event.target===this)closeDetail()"><div class="d-card" id="dCard"></div></div>
+<footer>
+<div style="text-align:center;margin-bottom:20px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+  <button onclick="sharePage()" style="background:linear-gradient(135deg,#ff3355,#3366ff);color:#fff;border:none;padding:14px 36px;border-radius:28px;cursor:pointer;font-size:.95em;font-weight:bold;box-shadow:0 4px 20px rgba(255,50,80,.3)"><span id="ibShareBtn">📤 分享给其他爱好者</span></button>
+  <button onclick="alert('感谢你的意见！\n\n📧 邮件：maybelinya@proton.me\n📕 小红书：@maybelinya\n🐛 GitHub：github.com/maybelinya/ultrabase/issues\n\n欢迎纠错、建议、交流！')" style="background:rgba(201,168,76,.15);color:#ffd700;border:2px solid #c9a84c;padding:14px 36px;border-radius:28px;cursor:pointer;font-size:.95em;font-weight:bold"><span id="ibFeedbackBtn">💬 给我提意见</span></button>
+</div>
+<div style="text-align:center;margin-bottom:12px">
+  <a href="#" onclick="alert('✨ 感谢你的反馈！\
+\
+📧 邮件：hello@cosmion.org\
+📕 小红书：@maybelinya\
+\
+欢迎纠错、建议、交流！')" style="color:#8899bb;font-size:.78em;text-decoration:underline"><span id="ibBugLink">🐛 发现错误？点此反馈</span></a>
+  <span style="color:#556688;margin:0 8px">·</span>
+  <span style="color:#556688;font-size:.72em">最后更新 2026.05.19</span>
+</div>
+<div style="color:#c9a84c;font-weight:bold">© Tsuburaya Productions / 円谷プロダクション</div>
+<div id="ibFooter">本页面为爱好者整理，角色版权归圆谷制作公司所有</div>
+</footer>
+<script>
+var IMG={
+king:'https://static.wikia.nocookie.net/ultra/images/1/1c/King_Data.png',
+father:'https://static.wikia.nocookie.net/ultra/images/f/fa/Father_Infobox.png',
+mother:'https://static.wikia.nocookie.net/ultra/images/e/e3/Mother_Infobox.png',
+zoffy:'https://static.wikia.nocookie.net/ultra/images/7/75/Ultraman_Z0ffy_by_zer0stylinx.png',
+ultraman:'https://static.wikia.nocookie.net/ultra/images/9/94/Ultraman_Info.png',
+seven:'https://static.wikia.nocookie.net/ultra/images/3/39/Ultraseven_awsome.png',
+jack:'https://static.wikia.nocookie.net/ultra/images/9/98/Ultraman_Jack_data.png',
+ace:'https://static.wikia.nocookie.net/ultra/images/9/9e/Ultraman_Ace.png',
+taro:'https://static.wikia.nocookie.net/ultra/images/3/39/Taro_Info.png',
+leo:'https://static.wikia.nocookie.net/ultra/images/7/70/Ultraman_Leo.png',
+astra:'https://static.wikia.nocookie.net/ultra/images/1/10/Astra_movie_II.png',
+eighty:'https://static.wikia.nocookie.net/ultra/images/1/10/Ultraman_80.png',
+yullian:'https://static.wikia.nocookie.net/ultra/images/d/d8/Yullian_Infobox.png',
+tiga:'https://static.wikia.nocookie.net/ultra/images/3/38/UltramanTiga.png',
+dyna:'https://static.wikia.nocookie.net/ultra/images/2/2f/Dyna_profile_I.png',
+gaia:'https://static.wikia.nocookie.net/ultra/images/6/65/Ultraman_Gaia.png',
+agul:'https://static.wikia.nocookie.net/ultra/images/1/1e/Ultraman_Agul_V2.png',
+cosmos:'https://static.wikia.nocookie.net/ultra/images/4/41/Ultraman_Cosmos.png',
+nexus:'https://static.wikia.nocookie.net/ultra/images/c/c8/Ultraman_Nexus.png',
+noa:'https://static.wikia.nocookie.net/ultra/images/f/f8/Ultraman_Noa_Info.png',
+mebius:'https://static.wikia.nocookie.net/ultra/images/5/5e/Mebius_Info.png',
+hikari:'https://static.wikia.nocookie.net/ultra/images/0/0e/Hikari_Info.png',
+max:'https://static.wikia.nocookie.net/ultra/images/3/38/Max_Info.png',
+zero:'https://static.wikia.nocookie.net/ultra/images/3/33/Zero_profil_I.png',
+belial:'https://static.wikia.nocookie.net/ultra/images/2/2c/Ultraman_Belial_infobox.png',
+geed:'https://static.wikia.nocookie.net/ultra/images/3/39/Img_top_chara_02.png',
+tregear:'https://static.wikia.nocookie.net/ultra/images/9/91/TregearTaigaSeries.png',
+taiga:'https://static.wikia.nocookie.net/ultra/images/6/69/Ultraman_Taiga_Info.png',
+titas:'https://static.wikia.nocookie.net/ultra/images/4/48/Ultraman_Titas_Info.png',
+fuma:'https://static.wikia.nocookie.net/ultra/images/8/82/Ultraman_Fuma_Info.png',
+reiga:'https://static.wikia.nocookie.net/ultra/images/3/33/Reiga_Info.png',
+orb:'https://static.wikia.nocookie.net/ultra/images/0/05/Orb_Origin.png',
+ginga:'https://static.wikia.nocookie.net/ultra/images/c/c8/Ultraman_Ginga_full.png',
+x:'https://static.wikia.nocookie.net/ultra/images/f/f0/Ultraman_X.png',
+rosso:'https://static.wikia.nocookie.net/ultra/images/7/70/Ultraman_Rosso.png',
+blu:'https://static.wikia.nocookie.net/ultra/images/d/df/Ultraman_Blu.png',
+z:'https://static.wikia.nocookie.net/ultra/images/6/6f/Zetto2render.png',
+trigger:'https://static.wikia.nocookie.net/ultra/images/0/0e/Trigger_Full.png',
+decker:'https://static.wikia.nocookie.net/ultra/images/6/69/DeckerRender.png',
+blazar:'https://static.wikia.nocookie.net/ultra/images/2/20/UltramanBlazar.png',
+arc:'https://static.wikia.nocookie.net/ultra/images/5/55/Ultraman_Arc_Render.png',
+legend:'https://static.wikia.nocookie.net/ultra/images/3/35/Legend_full.png',
+saga:'https://static.wikia.nocookie.net/ultra/images/2/24/Ultraman_Saga1.png',
+ruebe:'https://static.wikia.nocookie.net/ultra/images/f/fc/Ultramah_ruebe_render_by_zer0stylinx-dcom9ov.png',
+justice:'https://static.wikia.nocookie.net/ultra/images/0/00/Justice_Info.png',
+scott:'https://static.wikia.nocookie.net/ultra/images/4/4f/Ultraman_Scott_rendered.png',
+ribut:'https://static.wikia.nocookie.net/ultra/images/6/62/UltramanRibutInfobox.png',
+zetton:'https://static.wikia.nocookie.net/ultra/images/2/25/Zetton.png',
+gatanothor:'https://static.wikia.nocookie.net/ultra/images/a/a8/GatanothorInfo.png',
+empera:'https://static.wikia.nocookie.net/ultra/images/d/d8/Alien_Empera.png',
+greeza:'https://static.wikia.nocookie.net/ultra/images/5/5f/Greeza_render_I.png',
+yapool:'https://static.wikia.nocookie.net/ultra/images/9/9f/Yapool_Full.png',
+dark_zagi:'https://static.wikia.nocookie.net/ultra/images/7/7f/Dark_Zagi_Full.png',
+baltan:'https://static.wikia.nocookie.net/ultra/images/b/be/OriginalBaltan.png',
+gomora:'https://static.wikia.nocookie.net/ultra/images/b/bd/Gomora.png',
+red_king:'https://static.wikia.nocookie.net/ultra/images/f/ff/Red_King_Info.png',
+eleking:'https://static.wikia.nocookie.net/ultra/images/d/d0/Galaxy_Eleking.png',
+king_joe:'https://static.wikia.nocookie.net/ultra/images/0/0c/Ultraseven_King_Joe_render.png',
+birdon:'https://static.wikia.nocookie.net/ultra/images/9/98/Birdon_movie_II.png',
+tyrant:'https://static.wikia.nocookie.net/ultra/images/3/3a/Tyrant_info.png',
+magma:'https://static.wikia.nocookie.net/ultra/images/a/a1/Alein_Magma_info.png',
+golza:'https://static.wikia.nocookie.net/ultra/images/3/33/Ultraman_Tiga_Golza_bright_infobox_render.png',
+kyrieloid:'https://static.wikia.nocookie.net/ultra/images/9/97/Kyrieloid_Data.png',
+bemstar:'https://static.wikia.nocookie.net/ultra/images/d/db/Bemstar_movie_I.png',
+black_king:'https://static.wikia.nocookie.net/ultra/images/a/a0/Ultrmn_Glxy_lgnds_blck_kng.png',
+nackle:'https://static.wikia.nocookie.net/ultra/images/d/df/Alien_Nackle_Old.png',
+hipporito:'https://static.wikia.nocookie.net/ultra/images/3/38/Alien_Hipporit-removebg.png',
+beryudora:'https://static.wikia.nocookie.net/ultra/images/a/a4/Beryudora.png',
+dada:'https://static.wikia.nocookie.net/ultra/images/9/98/Dada_Movie_%282%29.png',
+pandon:'https://static.wikia.nocookie.net/ultra/images/2/2e/Pandon_fll.png',
+
+w_beta_img:"https://static.wikia.nocookie.net/ultra/images/9/94/Beta_Capsule.png",
+w_slugger_img:"https://static.wikia.nocookie.net/ultra/images/2/28/Eye_Slugger_rendered.png",
+w_bracelet_img:"https://static.wikia.nocookie.net/ultra/images/2/26/Ultra_Bracelet_Info.png",
+w_spark_img:"https://static.wikia.nocookie.net/ultra/images/f/fc/Spark_Lens_shut.png",
+w_paraji_img:"https://static.wikia.nocookie.net/ultra/images/0/07/Ultimate_Aegis.png",
+w_orbring_img:"https://static.wikia.nocookie.net/ultra/images/e/ef/Orb_Ring.png",
+w_medal_img:"https://static.wikia.nocookie.net/ultra/images/8/8f/Ultra_Z_Riser_render.png",
+};
+var CHAR={};
+function add(id,d){CHAR[id]=d;}
+
+add("noa",{n:"诺亚",en:"Ultraman Noa",ja:"ウルトラマンノア",t:"ultra",era:"平成",y:2004,env:"宇宙",sk:{a:{r:"S",m:["诺亚闪电","诺亚地狱火"]},d:{r:"S",m:["诺亚之翼","诺亚屏障"]},c:{r:"S",m:["时空穿越","宇宙创世"]}},st:"宇宙最初的第一道光，所有奥特曼的始祖。背上诺亚之翼可自由穿越时空，奈克瑟斯的究极形态。在奈克瑟斯最终话，孤门一辉完成进化化为诺亚，以压倒性力量击败了黑暗扎基。曾给予赛罗帕拉吉之盾。",st_en:"The first light of the universe, the progenitor of all Ultramen. With the Wings of Noa, he can freely travel through spacetime. The true form of Nexus. In the finale, Komon Kazuki evolved into Noa and defeated Dark Zagi with overwhelming power. Bestowed the Shield of Baradhi upon Zero.",st_ja:"宇宙最初の光、全てのウルトラマンの始祖。ノアの翼で時空を自在に移動する。ネクサスの真の姿。最終話で孤門一輝がノアへと進化し、圧倒的な力でダークザギを撃破。ゼロにパラージの盾を授けた。"});
+add("king",{n:"奥特之王",en:"Ultraman King",ja:"ウルトラマンキング",t:"ultra",era:"昭和",y:1974,env:"宇宙",sk:{a:{r:"S",m:["王者闪光","王者修复光线"]},d:{r:"S",m:["王者屏障"]},c:{r:"S",m:["宇宙修复","封印之力"]}},st:"光之国至高长者，实力凌驾所有奥特曼之上。首次登场于雷欧TV第26话，救治被冰冻的雷欧。在贝利亚之乱时给予赛罗限制装甲训练，最终取下装甲认可了赛罗。曾亲手封印黑谷。",st_en:"The supreme elder of the Land of Light, whose power surpasses all other Ultramen. First appeared in Leo Episode 26 to save the frozen Leo. Trained Zero with the restriction armor during Belial's rebellion, and later removed it as recognition. Personally sealed the dark entity Black End.",st_ja:"光の国最高の長者。実力は全ウルトラマンを凌駕する。レオ第26話で初登場し、氷漬けのレオを救った。ベリアルの乱でゼロに制限装甲を着けて訓練し、後に外して認めた。自ら黒い谷を封印した。"});
+add("legend",{n:"雷杰多",en:"Ultraman Legend",ja:"ウルトラマンレジェンド",t:"ultra",era:"平成",y:2004,env:"宇宙",sk:{a:{r:"S",m:["火花传说"]},d:{r:"S",m:["极光屏障"]},c:{r:"S",m:["高斯+杰斯提斯融合"]}},st:"高斯奥特曼和杰斯提斯奥特曼合体而成的传说战士。登场于2004年剧场版，仅一击就解决了宇宙级威胁。因为出现次数极少，反而显得极其神秘。"});
+add("saga",{n:"萨迦",en:"Ultraman Saga",ja:"ウルトラマンサーガ",t:"ultra",era:"平成",y:2012,env:"宇宙",sk:{a:{r:"S",m:["萨迦圣光"]},d:{r:"S",m:["萨迦屏障"]},c:{r:"S",m:["赛罗+戴拿+高斯融合"]}},st:"赛罗、戴拿、高斯三位一体合体而成的奇迹战士。2012年剧场版《奥特曼传奇》中登场，击败了宇宙最强怪兽海帕杰顿。白色神圣形态令人印象深刻。"});
+add("reiga",{n:"令迦",en:"Ultraman Reiga",ja:"ウルトラマンレイガ",t:"ultra",era:"新生代",y:2020,env:"宇宙",sk:{a:{r:"S",m:["令迦终极爆裂"]},d:{r:"A",m:["令迦屏障"]},c:{r:"S",m:["11位新生代合体"]}},st:"11位奥特曼合体的究极战士。"});
+add("father",{n:"奥特之父",en:"Father of Ultra",ja:"ウルトラの父",t:"ultra",era:"昭和",y:1972,env:"宇宙",sk:{a:{r:"A",m:["父亲光线","月牙斩击"]},d:{r:"A",m:["奥特屏障"]},c:{r:"A",m:["警备队总司令"]}},st:"光之国宇宙警备队大队长，泰罗的亲生父亲。本名凯恩(Ken)。年轻时与贝利亚曾是并肩作战的战友，在大战争中击败了安培拉星人。双角是成熟标志，也是光之国的象征性领袖。"});
+add("mother",{n:"奥特之母",en:"Mother of Ultra",ja:"ウルトラの母",t:"ultra",era:"昭和",y:1972,env:"宇宙",sk:{a:{r:"C",m:["母亲光线"]},d:{r:"B",m:["治愈屏障"]},c:{r:"A",m:["银河级治愈能力"]}},st:"银十字军队长，光之国医疗部队的统帅。本名玛丽(Marie)。能够救治受重伤的奥特战士，在战争中挽救了无数生命。泰罗的亲生母亲，温柔而坚强的存在。"});
+add("zoffy",{n:"佐菲",en:"Zoffy",ja:"ゾフィー",t:"ultra",era:"昭和",y:1967,env:"宇宙",sk:{a:{r:"A",m:["M87光线"]},d:{r:"A",m:["奥特屏障"]},c:{r:"B",m:["警备队队长"]}},st:"奥特兄弟大哥，宇宙警备队队长。拥有单体最强光线M87射线——理论上能为恒星开一个洞。在泰罗TV第18话被火山怪鸟巴顿击败并杀死，成为特摄圈经典名场面。绰号「那位大人」。",f:{}});
+
+add("belial",{n:"贝利亚",en:"Ultraman Belial",ja:"ウルトラマンベリアル",t:"ultra",era:"平成",y:2009,env:"宇宙",sk:{a:{r:"A",m:["帝王闪电","贝利亚巨爪"]},d:{r:"A",m:["暗黑屏障"]},c:{r:"A",m:["怪兽融合","黑暗能量"]}},st:"光之国最大叛徒。曾与凯恩并肩作战，落选大队长后触碰等离子火花塔被放逐，被雷布拉德星人附身成为黑暗皇帝。在超银河传说(2009)中首次登场，多次被赛罗击败又复活。2017年捷德TV中被自己的儿子亲手终结——灵魂彻底湮灭。推荐：超银河传说剧场版。",st_en:"The greatest traitor of the Land of Light. Once fought alongside Ken (Father of Ultra) as comrades, but after losing the election for Grand Commander, he touched the Plasma Spark and was exiled. Possessed by the Alien Reiblood, he became the Dark Emperor. First appeared in 2009's Mega Monster Battle, repeatedly defeated by Zero but always revived. In 2017, he was finally terminated by his own son Geed—his soul completely annihilated. Recommended: Mega Monster Battle film.",st_ja:"光の国最大の反逆者。かつてケン（ウルトラの父）と共に戦った戦友だったが、大队長選に敗れプラズマスパークに触れて追放された。レイブラッド星人に憑依され闇の皇帝に。2009年『大怪獣バトル』で初登場、ゼロに何度も倒されながら復活し続けた。2017年、ついに自らの息子ジードによって完全に終止符を打たれた——魂は完全に消滅。おすすめ：超銀河伝説劇場版。"});
+add("zero",{n:"赛罗",en:"Ultraman Zero",ja:"ウルトラマンゼロ",t:"ultra",era:"平成",y:2009,env:"宇宙",sk:{a:{r:"A",m:["赛罗双射线","等离子斩"]},d:{r:"A",m:["赛罗屏障"]},c:{r:"A",m:["光辉形态","终极铠甲"]}},st:"赛文的亲生儿子，光之国奇迹之子。2009年超银河传说横空出世。被判定继承贝利亚的邪恶基因送到K76星，由雷欧训练、穿限制装甲。取下装甲后一飞冲天，获诺亚赐予帕拉吉之盾。光辉形态可倒流时间复活整个星系。泽塔的师父，新生代的导师。推荐：超银河传说剧场版。",st_en:"The biological son of Ultraseven and the miracle child of the Land of Light. Burst onto the scene in the 2009 film Mega Monster Battle: Ultra Galaxy Legends. Sent to Planet K76 for training under Leo while wearing restriction armor, suspected of inheriting Belial's evil genes. After the armor was removed, he soared to greatness and received the Shield of Baradhi from Noa. His Shining form can reverse time and resurrect an entire galaxy. Master of Z, mentor to the New Generation. Recommended: Mega Monster Battle film.",st_ja:"セブンの実の息子、光の国の奇跡の子。2009年『大怪獣バトル ウルトラ銀河伝説』で鮮烈デビュー。ベリアルの邪悪な遺伝子を受け継いだ疑いでK76星に送られ、レオの下で制限装甲を着けて訓練。装甲が外された後、一気に飛躍しノアからパラージの盾を授かった。シャイニング形態で時間を巻き戻し銀河全体を復活させる。ゼットの師匠、ニュージェネレーションの指導者。おすすめ：超銀河伝説劇場版。"});
+add("ultraman",{n:"初代奥特曼",en:"Ultraman",ja:"ウルトラマン",t:"ultra",era:"昭和",y:1966,env:"城市",sk:{a:{r:"B",m:["斯佩修姆光线","八分光轮"]},d:{r:"B",m:["奥特屏障"]},c:{r:"C",m:["巨大化"]}},st:"1966年系列开山鼻祖，所有后续奥特曼的「初代大哥」。与早田进合体守护地球。招牌技斯佩修姆光线是后世所有光线技的模板。最终话(第39话)被宇宙恐龙杰顿击败——日本特摄史上最经典的画面之一。推荐：第1话和第39话。"});
+add("seven",{n:"赛文",en:"Ultra Seven",ja:"ウルトラセブン",t:"ultra",era:"昭和",y:1967,env:"城市",sk:{a:{r:"B",m:["艾梅利姆光线","头镖切割"]},d:{r:"B",m:["奥特屏障"]},c:{r:"B",m:["意念操控","胶囊怪兽"]}},st:"头顶Eye Slugger头镖成为标志。原为恒星观测员而非战士。1967年TV是全系列评分最高的作品之一。赛罗的父亲，雷欧的师父。人间体诸星弹在全剧中从未变过人类身份。推荐：赛文TV第3话《湖的秘密》。",f:{c:["zero"]}});
+
+add("jack",{n:"杰克",en:"Ultraman Jack",ja:"ウルトラマンジャック",t:"ultra",era:"昭和",y:1971,env:"宇宙",sk:{a:{r:"B",m:["斯佩修姆光线"]},d:{r:"B",m:["奥特屏障"]},c:{r:"B",m:["奥特手镯变形"]}},st:"「归来的奥特曼」，奥特兄弟第4位。手腕上的奥特手镯是万能武器——可变成盾牌、长枪、回旋镖等任意形态。人间体乡秀树是赛车手出身。被纳克尔星人研究战斗模式后针对性击败是著名剧情。推荐剧集：第37话《奥特曼在夕阳下死去》。"});
+
+add("ace",{n:"艾斯",en:"Ultraman Ace",ja:"ウルトラマンA",t:"ultra",era:"昭和",y:1972,env:"宇宙",sk:{a:{r:"B",m:["梅塔利姆光线","断头刀"]},d:{r:"B",m:["奥特屏障"]},c:{r:"B",m:["光线技之王"]}},st:"光线技之王，拥有昭和系最多的光线技能。最大特色是两名人类合体变身——北斗星司和南夕子。与异次元人亚波人是永恒宿敌。艾斯TV开创了「超兽」设定——宇宙人+怪兽合体的强化怪物。推荐剧集：第1话和第52话(最终话)。"});
+
+add("taro",{n:"泰罗",en:"Ultraman Taro",ja:"ウルトラマンタロウ",t:"ultra",era:"昭和",y:1973,env:"宇宙",sk:{a:{r:"A",m:["斯特利姆光线","奥特炸弹"]},d:{r:"A",m:["奥特心脏再生"]},c:{r:"A",m:["自爆再生"]}},st:"奥特之父与奥特之母的独生子，光之国太子。1973年TV登场，拥有奥特心脏可自爆后再生。招牌技奥特炸弹是自杀式绝招——燃烧全身撞击敌人后靠心脏再生。泰迦的父亲，与托雷基亚曾是挚友。推荐剧集：第1话《光之国的太子》、第18话《巴顿登场》。",f:{p:"father",m:"mother",c:["taiga"]}});
+
+add("leo",{n:"雷欧",en:"Ultraman Leo",ja:"ウルトラマンレオ",t:"ultra",era:"昭和",y:1974,env:"宇宙",sk:{a:{r:"A",m:["雷欧飞踢","宇宙拳法"]},d:{r:"B",m:["格斗防御"]},c:{r:"B",m:["L77王族后裔"]}},st:"格斗技最强奥特曼。来自已毁灭的L77星云狮子座星系——唯一非M78出身的昭和主战士。赛文在人间体状态下传授他格斗术，后来成为赛罗的师父。雷欧飞踢是系列最强踢技。阿斯特拉的亲兄长。推荐剧集：第1话《赛文死去之时》。",f:{b:"astra"}});
+
+add("astra",{n:"阿斯特拉",en:"Astra",ja:"アストラ",t:"ultra",era:"昭和",y:1974,env:"宇宙",sk:{a:{r:"B",m:["阿斯特拉踢技"]},d:{r:"B",m:["格斗防御"]},c:{r:"C",m:["L77王族后裔"]}},st:"雷欧的亲弟弟，L77王族后裔。被马格马星人俘虏囚禁，左腿上的铁镣铐是永远的疤痕。奥特之王亲自从马格马星人手中救出他。与雷欧一起在K76星训练赛罗时穿上限制装甲。",f:{b:"leo"}});
+
+add("eighty",{n:"爱迪",en:"Ultraman 80",ja:"ウルトラマン80",t:"ultra",era:"昭和",y:1980,env:"城市",sk:{a:{r:"B",m:["沙库修姆光线"]},d:{r:"B",m:["爱迪屏障"]},c:{r:"B",m:["全能教师"]}},st:"昭和最后一位TV奥特曼，几乎没有败绩的完美战士。人间体矢的猛是中学老师——每天早上要先上课再变身打怪兽，是昭和系列最特别的人间体设定。尤莉安的未婚夫。推荐：爱迪TV第1话。"});
+add("yullian",{n:"尤莉安",en:"Yullian",ja:"ユリアン",t:"ultra",era:"昭和",y:1980,env:"宇宙",sk:{a:{r:"C",m:["护身光线"]},d:{r:"C",m:["——"]},c:{r:"C",m:["光之国公主"]}},st:"光之国的公主般存在。为保护爱迪而冒险来到地球。与爱迪的关系是奥特系列中唯一一对正式确认的恋人/未婚夫妻。象征着昭和时代最后的美好与温情。"});
+add("tiga",{n:"迪迦",en:"Ultraman Tiga",ja:"ウルトラマンティガ",t:"ultra",era:"平成",y:1996,env:"城市",sk:{a:{r:"A",m:["哉佩利敖光线","迪拉休姆光流"]},d:{r:"B",m:["圆形护盾"]},c:{r:"A",m:["三形态变换","闪耀形态"]}},st:"超古代光之巨人，来自3000万年前的地球。1996年开创了形态变换玩法（复合/力量/速度），平成时代最经典的奥特曼。最终话第52话《致闪耀的人们》——被加坦杰厄击溃变成石头后，全世界的孩子打开手电筒给迪迦光，平成童年最深刻的集体记忆。人间体真角大古。推荐：第1话和第52话。",st_en:"An ancient giant of light from Earth 30 million years ago. Pioneered the form-change mechanic in 1996 and became the most iconic Heisei-era Ultraman. In the final episode, defeated by Gatanothor and turned to stone—children across the world turned on their flashlights to give Tiga light, creating the most unforgettable childhood memory of the Heisei generation. Human host: Daigo Madoka. Recommended: Episodes 1 and 52.",st_ja:"3000万年前の地球から来た超古代の光の巨人。1996年に形態変換を導入し、平成時代の最も象徴的なウルトラマンとなった。最終話でガタノゾーアに敗れ石像にされたが、世界中の子供たちが懐中電灯を灯してティガに光を送った——平成世代の最も深い集合的記憶。人間体：マドカ・ダイゴ。おすすめ：第1話と第52話。"});
+add("dyna",{n:"戴拿",en:"Ultraman Dyna",ja:"ウルトラマンダイナ",t:"ultra",era:"平成",y:1997,env:"宇宙",sk:{a:{r:"B",m:["索尔捷特光线"]},d:{r:"B",m:["戴拿护盾"]},c:{r:"B",m:["三形态变换"]}},st:"迪迦的后继者，同宇宙的未来故事。飞鸟信热血莽撞的性格深受观众喜爱。终局被最终BOSS古兰斯菲亚吞没在宇宙中消失——这个片尾让无数人落泪。后在被困的异空间修炼成完全形态，在赛罗剧场版中回归。推荐：戴拿TV最终话。"});
+add("gaia",{n:"盖亚",en:"Ultraman Gaia",ja:"ウルトラマンガイア",t:"ultra",era:"平成",y:1998,env:"森林",sk:{a:{r:"B",m:["光子冰刃","至高光子刃"]},d:{r:"B",m:["盖亚护盾"]},c:{r:"A",m:["地球意志","V2至高型"]}},st:"地球本身意志的化身，非M78出身。人间体高山我梦是天才高中生科学家。与代表海洋意志的阿古茹从激烈对立到并肩作战是全剧最大看点——两个「地球之子」终于联手时才解锁V2至高型。推荐剧集：第1话《抓住光》。"});
+add("agul",{n:"阿古茹",en:"Ultraman Agul",ja:"ウルトラマンアグル",t:"ultra",era:"平成",y:1998,env:"海洋",sk:{a:{r:"B",m:["光子粉碎机","阿古茹剑气"]},d:{r:"B",m:["阿古茹护盾"]},c:{r:"B",m:["海洋意志"]}},st:"海洋意志化身。与盖亚同是地球之光的体现。藤宫博也是被海洋选中的青年，冷酷而坚定。他的光剑战斗方式独树一帜。和盖亚从冲突到和解是平成最经典的双主角叙事。"});
+add("cosmos",{n:"高斯",en:"Ultraman Cosmos",ja:"ウルトラマンコスモス",t:"ultra",era:"平成",y:2001,env:"森林",sk:{a:{r:"B",m:["高斯光线"]},d:{r:"B",m:["高斯护盾"]},c:{r:"A",m:["月光净化","不杀原则"]}},st:"慈爱的战士，唯一坚持「不杀原则」的奥特曼。能用月光净化狂暴的怪兽，温柔地结束战斗。与武藏完全一心同体——高斯就是武藏。与理念相反的杰斯提斯最终合体成雷杰多。TV在播出期间因主演演员意外而中途暂停，成为特摄史著名事件。",st_en:"The compassionate warrior, the only Ultraman who adheres to a no-kill principle. He can use Moonlight Purification to calm rampaging monsters, ending battles gently. He and Musashi are completely one in mind and body—Cosmos IS Musashi. His TV series was paused mid-run due to an accident involving the lead actor, a famous incident in tokusatsu history.",st_ja:"慈愛の戦士、殺さない原則を守る唯一のウルトラマン。月光净化で暴れる怪獣を鎮め、優しく戦いを終わらせる。ムサシとは完全な一心同体——コスモスはすなわちムサシ。主演俳優の事故でTV放送が中断された特撮史上有名な出来事がある。"});
+add("justice",{n:"杰斯提斯",en:"Ultraman Justice",ja:"ウルトラマンジャスティス",t:"ultra",era:"平成",y:2002,env:"城市",sk:{a:{r:"B",m:["杰斯提斯光线"]},d:{r:"B",m:["——"]},c:{r:"B",m:["秩序之战士"]}},st:"秩序之战士，与高斯的理念截然相反——认为该消灭的怪兽就该坚决消灭。这种「秩序高于慈悲」的冷酷使他和软心肠的高斯形成鲜明对比，两人的合体也因此更有戏剧张力。"});
+
+add("nexus",{n:"奈克瑟斯",en:"Ultraman Nexus",ja:"ウルトラマンネクサス",t:"ultra",era:"平成",y:2004,env:"城市",sk:{a:{r:"A",m:["终极光线"]},d:{r:"A",m:["奈克瑟斯护盾"]},c:{r:"A",m:["进化成诺亚","适能者传承"]}},st:"诺亚的幼体形态。多名适能者(姬矢准→千树怜→西条风→孤门一辉)接力传承光的力量。系列最黑暗成人向的作品，被腰斩但在粉丝心中地位极高。不同适能者对应不同形态和颜色。最终适能者孤门一辉完成进化成为诺亚。"});
+add("mebius",{n:"梦比优斯",en:"Ultraman Mebius",ja:"ウルトラマンメビウス",t:"ultra",era:"平成",y:2006,env:"宇宙",sk:{a:{r:"B",m:["梅比乌姆光线","梦比姆炸弹"]},d:{r:"B",m:["梦比优斯护盾"]},c:{r:"A",m:["凤凰形态"]}},st:"连接昭和与平成的桥梁。佐菲派遣的新人战士，六位昭和前辈在他TV中轮流客串指导——每集一位昭和奥特曼。最终话历代奥特曼集体回归，是奥特系列最壮观的全明星时刻。推荐：梦比优斯TV第1话和最终话。",st_en:"The bridge connecting the Showa and Heisei eras. Dispatched by Zoffy as a rookie, he was mentored by six Showa seniors who each made guest appearances in his series. The finale brought back all previous Ultramen in the most spectacular all-star moment in the franchise. Recommended: Mebius TV Episodes 1 and the finale.",st_ja:"昭和と平成を繋ぐ架け橋。ゾフィーから派遣された新人で、6人の昭和先輩が毎話交代でゲスト出演し指導した。最終話では歴代ウルトラマンが全員集合——シリーズ最も壮観なオールスターシーン。おすすめ：メビウスTV第1話と最終話。"});
+add("hikari",{n:"希卡利",en:"Ultraman Hikari",ja:"ウルトラマンヒカリ",t:"ultra",era:"平成",y:2006,env:"宇宙",sk:{a:{r:"B",m:["骑士光线"]},d:{r:"B",m:["希卡利屏障"]},c:{r:"A",m:["宇宙第一科学家"]}},st:"光之国首席科学家，宇宙科学技术局局长。几乎所有新生代奥特曼的变身道具和装备都是他研发的。曾因无法拯救阿柏星而走上复仇之路——剑形态「猎手骑士剑」是他黑历史的顶点。推荐：梦比优斯TV第6话。"});
+add("max",{n:"麦克斯",en:"Ultraman Max",ja:"ウルトラマンマックス",t:"ultra",era:"平成",y:2005,env:"宇宙",sk:{a:{r:"B",m:["马库修姆光线","银河加农"]},d:{r:"B",m:["麦克斯屏障"]},c:{r:"C",m:["可巨大化至800m"]}},st:"「最快最强」是官方设定。身高可变大到800米——系列最大。麦克斯银河是他从宇宙中获取的外挂装备。2005年作品，风格回归昭和传统。"});
+
+add("geed",{n:"捷德",en:"Ultraman Geed",ja:"ウルトラマンジード",t:"ultra",era:"新生代",y:2017,env:"宇宙",sk:{a:{r:"A",m:["毁灭爆裂","皇家终结"]},d:{r:"B",m:["捷德护盾"]},c:{r:"A",m:["贝利亚之子","融合变身"]}},st:"用贝利亚遗传因子制造的人造生命体。从自我厌弃到接受命运，最终亲手终结父亲——奥特史上最悲壮的父子对决。皇家百万大师形态融合了奥特之王的力量，意味着被光之国最高权威认可。推荐剧集：捷德TV第1话和第25话。",st_en:"An artificial life form created using Belial's genetic material. From self-loathing to accepting his fate, he ultimately terminated his own father—the most tragic father-son confrontation in Ultra history. His Royal Mega Master form fuses the power of Ultraman King, signifying recognition by the highest authority of the Land of Light. Recommended: Geed TV Episodes 1 and 25.",st_ja:"ベリアルの遺伝子から作られた人工生命体。自己嫌悪から運命の受容へ、そして最終的に自らの父を終わらせた——ウルトラ史上最も悲壮な父子対決。ロイヤルメガマスター形態はウルトラマンキングの力を融合し、光の国最高権威からの承認を意味する。おすすめ：ジードTV第1話と第25話。"});
+add("tregear",{n:"托雷基亚",en:"Ultraman Tregear",ja:"ウルトラマントレギア",t:"ultra",era:"新生代",y:2019,env:"宇宙",sk:{a:{r:"A",m:["混沌光线"]},d:{r:"A",m:["混沌屏障"]},c:{r:"A",m:["混沌理论"]}},st:"泰罗的昔日挚友，光之国科学家。他的堕落不是源于力量欲望而是哲学怀疑——认为光明不是唯一的真理，追求「混沌」。曾与泰罗并肩训练，看着泰罗成为太子而自己在光明中找不到答案。泰迦的宿敌，最终在泰迦剧中终结。推荐：泰迦TV第16话。",st_en:"Taro's former best friend, a scientist of the Land of Light. His fall wasn't driven by a lust for power but by philosophical doubt—he believed light wasn't the only truth and pursued chaos. He trained alongside Taro, watching him become the Crown Prince while he himself found no answers in the light. Taiga's nemesis.",st_ja:"タロウの元親友、光の国の科学者。彼の堕落は力への欲望ではなく哲学的懐疑によるもの——光だけが真理ではないと考え「混沌」を追求した。タロウと共に訓練しながら、彼が太子になるのを見つめ、自らは光の中で答えを見つけられなかった。タイガの宿敵。"});
+add("taiga",{n:"泰迦",en:"Ultraman Taiga",ja:"ウルトラマンタイガ",t:"ultra",era:"新生代",y:2019,env:"宇宙",sk:{a:{r:"B",m:["泰迦光束","泰迦飞踢"]},d:{r:"B",m:["泰迦护盾"]},c:{r:"B",m:["三代嫡传"]}},st:"泰罗的儿子，奥特之父和奥特之母的孙子——光之国三代嫡孙。2019年登场即背负着巨大期待。与肌肉男泰塔斯和忍者风马组成三人小队。宿敌恰好是父亲昔日的挚友托雷基亚——这种命运的交错极有戏剧性。三人合体成令迦。"});
+add("titas",{n:"泰塔斯",en:"Ultraman Titas",ja:"ウルトラマンタイタス",t:"ultra",era:"新生代",y:2019,env:"宇宙",sk:{a:{r:"B",m:["普兰尼姆爆裂"]},d:{r:"A",m:["铁壁防御"]},c:{r:"C",m:["U40出身"]}},st:"U-40星系的力之贤者。泰迦三人组的肌肉担当。以怪力和铁壁防御著称。来自非M78星系的另一颗星球。"});
+add("fuma",{n:"风马",en:"Ultraman Fuma",ja:"ウルトラマンフーマ",t:"ultra",era:"新生代",y:2019,env:"宇宙",sk:{a:{r:"B",m:["风马手里剑"]},d:{r:"C",m:["超高速移动"]},c:{r:"C",m:["O-50出身"]}},st:"O-50行星出身的风之忍者。泰迦三人组的速度担当。来自欧布的老家。"});
+add("z",{n:"泽塔",en:"Ultraman Z",ja:"ウルトラマンZ",t:"ultra",era:"新生代",y:2020,env:"宇宙",sk:{a:{r:"A",m:["泽斯蒂姆光线","泽塔光弩"]},d:{r:"B",m:["泽塔屏障"]},c:{r:"A",m:["德尔塔天爪","贝利亚魔剑"]}},st:"赛罗的弟子。2020年获取星云赏——少数获得主流科幻奖项的奥特曼系列作品。从半吊子奥特曼成长为真正战士的故事线非常饱满。德尔塔天爪形态挥舞贝利亚的魔剑，表现力十足。D4射线涉及反战主题。推荐：泽塔TV第1话。",st_en:"Disciple of Zero. Won the 2020 Seiun Award—one of the few Ultra series to receive mainstream sci-fi recognition. Grew from a half-baked Ultraman into a true warrior with a richly satisfying story arc. The Delta Rise Claw form wields Belial's demon sword with dramatic flair. The D4 Ray touches on anti-war themes. Recommended: Z TV Episode 1.",st_ja:"ゼロの弟子。2020年日本星雲賞受賞——ウルトラシリーズで主流SF賞を受賞した数少ない作品。半人前のウルトラマンから真の戦士へと成長する物語が高評価。デルタライズクロー形態でベリアルの魔剣を振るう。D4レイは反戦テーマに触れる。おすすめ：Z TV第1話。"});
+add("orb",{n:"欧布",en:"Ultraman Orb",ja:"ウルトラマンオーブ",t:"ultra",era:"新生代",y:2016,env:"宇宙",sk:{a:{r:"A",m:["斯佩修姆哉佩利敖","欧布至高圣剑"]},d:{r:"B",m:["欧布护盾"]},c:{r:"A",m:["卡片融合变身"]}},st:"新生代融合玩法的巅峰代表。来自O-50行星，使用两张前辈卡片组合变形态——初代+迪迦=斯佩修姆哉佩利敖、佐菲+贝利亚=暗黑欧布。与亦敌亦友的伽古拉的复杂关系让欧布成为新生代最受欢迎的作品之一。人间体红凯的浪人气质圈粉无数。",st_en:"The peak representative of New Generation fusion play. From Planet O-50, he uses pairs of senior Ultra cards to transform—Ultraman+Tiga becomes Spacium Zeperion, Zoffy+Belial becomes Dark Orb. His complex frenemy relationship with Jugglus Juggler made Orb one of the most beloved New Generation works.",st_ja:"ニュージェネレーション融合プレイの頂点。O-50惑星出身で、先輩ウルトラマンのカード2枚を組み合わせて変身——初代+ティガ=スペシウムゼペリオン、ゾフィー+ベリアル=ダークオーブ。ジャグラーとの複雑な関係がオーブをニュージェネレーションで最も愛される作品の一つにした。"});
+add("ginga",{n:"银河",en:"Ultraman Ginga",ja:"ウルトラマンギンガ",t:"ultra",era:"新生代",y:2013,env:"宇宙",sk:{a:{r:"B",m:["银河光线"]},d:{r:"B",m:["银河护盾"]},c:{r:"B",m:["未来之光"]}},st:"新生代开山之作。2013年登场，来自未来的奥特曼。用银河火花将软胶怪兽实体化。新生代的开端之作。"});
+add("x",{n:"艾克斯",en:"Ultraman X",ja:"ウルトラマンX",t:"ultra",era:"新生代",y:2015,env:"宇宙",sk:{a:{r:"B",m:["艾克斯光线"]},d:{r:"B",m:["数据屏障"]},c:{r:"B",m:["数据化存在","怪兽装甲"]}},st:"寄生在人间体手机里的数据奥特曼——彻底的数据化存在。2015年作品。可以使用怪兽装甲系统——把怪兽的能力穿到自己身上。"});
+add("rosso",{n:"罗索",en:"Ultraman Rosso",ja:"ウルトラマンロッソ",t:"ultra",era:"新生代",y:2018,env:"城市",sk:{a:{r:"B",m:["火焰光线"]},d:{r:"B",m:["罗索护盾"]},c:{r:"B",m:["火之元素"]}},st:"兄弟战士的哥哥。2018年作品。与弟弟布鲁用元素水晶变身——哥哥管火、弟弟管水。两人合体成罗布。家族线贯穿全剧：兄妹三人最终合体成格罗布。"});
+add("trigger",{n:"特利迦",en:"Ultraman Trigger",ja:"ウルトラマントリガー",t:"ultra",era:"新生代",y:2021,env:"城市",sk:{a:{r:"B",m:["哉佩利敖光线"]},d:{r:"B",m:["圆形护盾"]},c:{r:"B",m:["三形态变换"]}},st:"迪迦的平行宇宙复刻。2021年作品，形态完全对应迪迦——复合/力量/空中+真理型(对应闪耀)。黑暗三人组与特利迦存在类似迪迦与卡蜜拉的前世感情线。人间体剑悟真中是植物学家——很别致的设定。"});
+add("decker",{n:"德凯",en:"Ultraman Decker",ja:"ウルトラマンデッカー",t:"ultra",era:"新生代",y:2022,env:"宇宙",sk:{a:{r:"B",m:["德凯光线"]},d:{r:"B",m:["德凯护盾"]},c:{r:"B",m:["三形态变换"]}},st:"戴拿的平行宇宙复刻。2022年作品，与特利迦共享TPU世界观。形态对应戴拿的闪亮/强壮/奇迹。"});
+add("blazar",{n:"布莱泽",en:"Ultraman Blazar",ja:"ウルトラマンブレーザー",t:"ultra",era:"新生代",y:2023,env:"森林",sk:{a:{r:"A",m:["奇尔索光枪","野性咬击"]},d:{r:"A",m:["原始防御"]},c:{r:"A",m:["野性战斗","已婚父亲变身者"]}},st:"2023年的野性革命。来自遥远异星的野性之光——不会说话、不用光线技为主，战斗时用嘴咬、身体撞犹如野兽。人间体比留间弦人是SKaRD队长，奥特史上第一个已婚父亲的变身者。久违的创新的作品。推荐：布莱泽TV第1话。",st_en:"The wild revolution of 2023. A feral light from a distant alien star—he doesn't speak, rarely uses beam attacks, and fights by biting and body-slamming like a beast. His human host Gento Hiruma is the captain of SKaRD, making him the first married father to serve as an Ultra host in the entire franchise. A long-awaited breath of innovation.",st_ja:"2023年の野生革命。遥か彼方の異星から来た野生の光——喋らず、光線技を主とせず、噛みつきと体当たりで獣のように戦う。人間体ヒルマ・ゲントはSKaRDの隊長で、シリーズ史上初の既婚の父である変身者。久々の革新的作品。"});
+add("arc",{n:"亚克",en:"Ultraman Arc",ja:"ウルトラマンアーク",t:"ultra",era:"新生代",y:2024,env:"宇宙",sk:{a:{r:"B",m:["弧光光线"]},d:{r:"B",m:["弧光护盾"]},c:{r:"B",m:["想象力主题"]}},st:"2024年最新TV作品。视觉风格回归经典，主题是「想象力」。人间体飞世优马。"});
+add("scott",{n:"史考特",en:"Ultraman Scott",ja:"ウルトラマンスコット",t:"ultra",era:"昭和",y:1987,env:"宇宙",sk:{a:{r:"C",m:["史考特光线"]},d:{r:"C",m:["——"]},c:{r:"C",m:["USA三人组队长"]}},st:"1987年美日合作动画《奥特曼USA》的队长。三人组中的红色战士。虽然冷门但官方承认。"});
+add("ribut",{n:"利布特",en:"Ultraman Ribut",ja:"ウルトラマンリブット",t:"ultra",era:"新生代",y:2016,env:"宇宙",sk:{a:{r:"B",m:["利布特光线"]},d:{r:"A",m:["利布特光盾"]},c:{r:"B",m:["马来西亚合作"]}},st:"马来西亚合作创作的奥特曼。最初在马来西亚动画中客串，后被圆谷正式纳入正典加入银河救援队。蓝色身体+金色护甲的设计很帅气。"});
+add("ruebe",{n:"罗布",en:"Ultraman Ruebe",ja:"ウルトラマンルーブ",t:"ultra",era:"新生代",y:2018,env:"宇宙",sk:{a:{r:"A",m:["罗布极限光线"]},d:{r:"B",m:["罗布护盾"]},c:{r:"A",m:["兄弟合体"]}},st:"罗索和布鲁兄弟二人的合体形态。火焰与水元素的完美结合。"});
+add("zetton",{n:"杰顿",en:"Zetton",ja:"ゼットン",t:"monster",era:"昭和",y:1966,env:"宇宙",sk:{a:{r:"A",m:["一兆度火球"]},d:{r:"A",m:["杰顿屏障"]},c:{r:"A",m:["首个击败奥特曼"]}},st:"宇宙恐龙。1966年初代奥特曼最终话登场——成为史上首个击败奥特曼的存在。屏障可完美反射一切光线，让初代的斯佩修姆光线完全无效。这个场面是日本特摄史上最经典的一幕。在后续作品中多次以强化形态回归。",st_en:"Space dinosaur. Appeared in the 1966 finale of the original Ultraman—becoming the first being in history to defeat an Ultraman. Its barrier perfectly reflects all beam attacks, rendering Ultraman's Spacium Ray completely useless. One of the most iconic moments in Japanese tokusatsu history. Returns in later works with enhanced forms.",st_ja:"宇宙恐竜。1966年初代ウルトラマン最終話に登場——史上初めてウルトラマンを倒した存在となった。バリアは全ての光線を完璧に反射し、スペシウム光線を完全無効化。日本特撮史上最も象徴的なシーンの一つ。後の作品で強化形態で再登場する。",ctrl:"杰顿星人操控"});
+add("gatanothor",{n:"加坦杰厄",en:"Gatanothor",ja:"ガタノゾーア",t:"monster",era:"平成",y:1996,env:"海洋",sk:{a:{r:"S",m:["黑暗闪电","触手攻击"]},d:{r:"S",m:["超强外壳"]},c:{r:"S",m:["克苏鲁黑暗支配者"]}},st:"迪迦最终BOSS，克苏鲁风格的超巨型海怪。黑暗支配者，来自超古代。触手攻击+精神污染+黑暗闪电。将迪迦变成石头——全世界的孩子打开手电筒给迪迦光，平成童年最深刻的集体记忆。迪迦TV第51-52话。",st_en:"Tiga's final boss, a Cthulhu-style giant sea monster. The dark dominator from the ancient past. Tentacle attacks, mental pollution, and dark lightning. Turned Tiga to stone—children across the world opened their flashlights to give Tiga light, the deepest collective memory of the Heisei generation. Tiga TV Episodes 51-52.",st_ja:"ティガの最終ボス、クトゥルフ風の巨大海怪。超古代からの闇の支配者。触手攻撃、精神汚染、闇の雷。ティガを石に変えた——世界中の子供たちが懐中電灯を灯してティガに光を送った平成世代の最も深い集合的記憶。ティガTV第51-52話。",ctrl:"超古代黑暗支配者（自主）"});
+add("empera",{n:"安培拉星人",en:"Alien Empera",ja:"エンペラ星人",t:"monster",era:"平成",y:2006,env:"宇宙",sk:{a:{r:"A",m:["黑暗光线","暗黑剑"]},d:{r:"A",m:["黑暗之铠"]},c:{r:"A",m:["光之国千年宿仇"]}},st:"黑暗皇帝，光之国的千年宿仇。远古时代被奥特之父击败，千年后卷土重来。梦比优斯最终话——面对安培拉，八位奥特兄弟全部到场。是系列最壮观的全明星战役。",ctrl:"黑暗皇帝（自主）"});
+add("greeza",{n:"格利扎",en:"Greeza",ja:"グリーザ",t:"monster",era:"新生代",y:2015,env:"宇宙",sk:{a:{r:"S",m:["虚空吞噬"]},d:{r:"S",m:["完全虚无"]},c:{r:"S",m:["无实体无生命"]}},st:"虚空怪兽——没有实体、没有重量、没有生命、没有意识。理论上的完全虚无，无法被攻击。艾克斯最终BOSS。泽塔中再次登场依然恐怖。打败它的方式不是力量而是存在本身。",ctrl:"虚空存在（无意识）"});
+add("yapool",{n:"亚波人",en:"Yapool",ja:"ヤプール",t:"monster",era:"昭和",y:1972,env:"宇宙",sk:{a:{r:"A",m:["超兽制造","异次元能量"]},d:{r:"B",m:["异次元屏障"]},c:{r:"A",m:["无限复活"]}},st:"异次元人，艾斯奥特曼的永恒宿敌。居住在异次元空间，能制造超兽——将宇宙人和怪兽合成强化。每次被击败都会换新形态复活。艾斯TV的核心反派。",ctrl:"亚波人（自主）"});
+add("dark_zagi",{n:"黑暗扎基",en:"Dark Zagi",ja:"ダークザギ",t:"monster",era:"平成",y:2004,env:"宇宙",sk:{a:{r:"S",m:["扎基闪电"]},d:{r:"S",m:["黑暗屏障"]},c:{r:"S",m:["诺亚的镜像"]}},st:"诺亚的黑暗镜像。拥有和宇宙第一道光同等的力量。奈克瑟斯TV最终BOSS——孤门一辉进化成诺亚后终结了他。宇宙中最可怕的存在之一。",ctrl:"自主（诺亚的镜像）"});
+add("baltan",{n:"巴尔坦星人",en:"Alien Baltan",ja:"バルタン星人",t:"monster",era:"昭和",y:1966,env:"宇宙",sk:{a:{r:"B",m:["巴尔坦光线","分身术"]},d:{r:"C",m:["蝉翼飞行"]},c:{r:"B",m:["无限分身"]}},st:"双钳红眼蝉型，奥特系列最具标志性的宇宙人。1966年初代TV第2话登场。故乡巴尔坦星被核战争毁灭，来地球寻找新家园——这个设定让它有了悲剧色彩。可无限分身。",ctrl:"巴尔坦星人（自主）"});
+add("gomora",{n:"哥莫拉",en:"Gomora",ja:"ゴモラ",t:"monster",era:"昭和",y:1966,env:"森林",sk:{a:{r:"B",m:["巨尾攻击","怪力冲撞"]},d:{r:"A",m:["超坚固皮肤"]},c:{r:"C",m:["古代恐龙"]}},st:"系列最受欢迎的怪兽之一。1966年初代TV登场。本是被人类打扰的古代恐龙——这让它成了悲剧怪兽而非纯粹的反派。多次在后续作品中回归并有多种变体。",ctrl:"古代野生恐龙"});
+add("red_king",{n:"雷德王",en:"Red King",ja:"レッドキング",t:"monster",era:"昭和",y:1966,env:"森林",sk:{a:{r:"B",m:["怪力拳击"]},d:{r:"B",m:["厚皮防御"]},c:{r:"D",m:["智商低下"]}},st:"强大腕力，暴躁但头脑简单。",ctrl:"野生怪兽"});
+add("eleking",{n:"艾雷王",en:"Eleking",ja:"エレキング",t:"monster",era:"昭和",y:1967,env:"海洋",sk:{a:{r:"B",m:["雷电鞭尾"]},d:{r:"B",m:["耐电体质"]},c:{r:"C",m:["水中潜伏"]}},st:"标志性长尾，赛文经典对手。",ctrl:"匹特星人操控"});
+add("king_joe",{n:"金古桥",en:"King Joe",ja:"キングジョー",t:"monster",era:"昭和",y:1967,env:"城市",sk:{a:{r:"A",m:["分解光线","导弹齐射"]},d:{r:"A",m:["超合金装甲"]},c:{r:"B",m:["分解合体"]}},st:"佩丹星机器人，刀枪不入。",ctrl:"佩丹星人制造"});
+add("birdon",{n:"火山怪鸟巴顿",en:"Birdon",ja:"バードン",t:"monster",era:"昭和",y:1973,env:"森林",sk:{a:{r:"A",m:["毒喙攻击","火山岩浆"]},d:{r:"B",m:["超强生命力"]},c:{r:"C",m:["佐菲杀手"]}},st:"火山怪鸟，泰罗TV登场。击败了奥特六兄弟的大哥佐菲——「佐菲被杀」成为日本特摄圈流传最广的meme。毒喙是致命武器。经典名场面。",ctrl:"野生火山怪鸟"});
+add("tyrant",{n:"泰兰特",en:"Tyrant",ja:"タイラント",t:"monster",era:"昭和",y:1973,env:"宇宙",sk:{a:{r:"A",m:["融合怪兽技能"]},d:{r:"A",m:["坚甲外壳"]},c:{r:"A",m:["7只怪兽部件融合"]}},st:"由7只不同怪兽的身体部件拼成的终极合体兽。1973年泰罗TV登场。一口气击败了佐菲、初代、赛文、杰克、艾斯五位奥特兄弟——只有泰罗拼尽全力才战胜它。",ctrl:"贝利亚操控（融合体）"});
+add("magma",{n:"马格马星人",en:"Alien Magma",ja:"マグマ星人",t:"monster",era:"昭和",y:1974,env:"宇宙",sk:{a:{r:"A",m:["马格马光线"]},d:{r:"B",m:["星云战斗服"]},c:{r:"C",m:["毁灭L77星云"]}},st:"1974年雷欧TV登场。操控孪生怪兽毁灭了整个L77星云——雷欧和阿斯特拉因此失去了家园和族人。雷欧兄弟的不共戴天之仇。",ctrl:"马格马星人（自主）"});
+add("golza",{n:"哥尔赞",en:"Golza",ja:"ゴルザ",t:"monster",era:"平成",y:1996,env:"城市",sk:{a:{r:"B",m:["超声波光线"]},d:{r:"A",m:["超古代硬甲"]},c:{r:"C",m:["地底吸收能量"]}},st:"超古代暴龙。1996年迪迦TV第1话登场。与美尔巴联手是迪迦的第一战对手。后来吸收地底能量变强成强化型，平成时代的标志性反派。",ctrl:"超古代野生暴龙"});
+add("kyrieloid",{n:"基里艾洛德人",en:"Kyrieloid",ja:"キリエロイド",t:"monster",era:"平成",y:1996,env:"城市",sk:{a:{r:"A",m:["地狱之火"]},d:{r:"B",m:["高速再生"]},c:{r:"A",m:["自称神的使者"]}},st:"迪迦宿敌，宗教风格反派。",ctrl:"基里艾洛德人（自主）"});
+add("bemstar",{n:"贝蒙斯坦",en:"Bemstar",ja:"ベムスター",t:"monster",era:"昭和",y:1971,env:"宇宙",sk:{a:{r:"A",m:["腹部吸收光线"]},d:{r:"A",m:["光线免疫"]},c:{r:"C",m:["能量转化"]}},st:"腹部可吸收一切光线。杰克劲敌。",ctrl:"宇宙野生怪兽"});
+add("black_king",{n:"布莱克王",en:"Black King",ja:"ブラックキング",t:"monster",era:"昭和",y:1971,env:"城市",sk:{a:{r:"B",m:["怪力攻击"]},d:{r:"A",m:["超强肉体"]},c:{r:"D",m:["纳克尔训练"]}},st:"纳克尔星人训练的保镖怪兽。",ctrl:"纳克尔星人训练/操控"});
+add("nackle",{n:"纳克尔星人",en:"Alien Nackle",ja:"ナックル星人",t:"monster",era:"昭和",y:1971,env:"宇宙",sk:{a:{r:"B",m:["纳克尔光线"]},d:{r:"C",m:["——"]},c:{r:"B",m:["研究奥特曼战术"]}},st:"首个用脑子打奥特曼的策略大师。",ctrl:"纳克尔星人（自主）"});
+add("hipporito",{n:"希波利特星人",en:"Alien Hipporit",ja:"ヒッポリト星人",t:"monster",era:"昭和",y:1972,env:"城市",sk:{a:{r:"A",m:["青铜化光线"]},d:{r:"B",m:["——"]},c:{r:"A",m:["将奥特曼变成青铜像"]}},st:"将奥特兄弟变成青铜像的恐怖对手。",ctrl:"希波利特星人（自主）"});
+add("beryudora",{n:"贝琉多拉",en:"Belyudra",ja:"ベリュドラ",t:"monster",era:"平成",y:2009,env:"宇宙",sk:{a:{r:"S",m:["百兽同时攻击"]},d:{r:"A",m:["融合铠甲"]},c:{r:"S",m:["百体融合"]}},st:"贝利亚操控的100只怪兽融合体。",ctrl:"贝利亚操控"});
+add("dada",{n:"达达",en:"Dada",ja:"ダダ",t:"monster",era:"昭和",y:1966,env:"城市",sk:{a:{r:"C",m:["缩小光线枪"]},d:{r:"D",m:["——"]},c:{r:"C",m:["三张不同的脸"]}},st:"三面宇宙人，波普艺术经典。",ctrl:"达达星人（自主）"});
+add("pandon",{n:"庞敦",en:"Pandon",ja:"パンドン",t:"monster",era:"昭和",y:1967,env:"宇宙",sk:{a:{r:"B",m:["火焰弹","双头攻击"]},d:{r:"C",m:["——"]},c:{r:"C",m:["双头怪鸟"]}},st:"赛文TV最终BOSS，双头喷火弹。",ctrl:"嘎次星人操控"});
+
+// WEAPONS
+add("w_beta",{n:"贝塔胶囊",en:"Beta Capsule",ja:"ベーターカプセル",t:"weapon",era:"昭和",y:1966,u:"初代奥特曼",st:"最早的变身器，按下按钮发光变身。"});
+add("w_slugger",{n:"头镖",en:"Eye Slugger",ja:"アイスラッガー",t:"weapon",era:"昭和",y:1967,u:"赛文",st:"赛文头上的飞镖，可远程操控切割。"});
+add("w_bracelet",{n:"奥特手镯",en:"Ultra Bracelet",ja:"ウルトラブレスレット",t:"weapon",era:"昭和",y:1971,u:"杰克",st:"万能武器，可变成盾牌、长枪等。"});
+add("w_spark",{n:"火花棱镜",en:"Spark Lence",ja:"スパークレンス",t:"weapon",era:"平成",y:1996,u:"迪迦",st:"迪迦变身器，又称神光棒。"});
+add("w_paraji",{n:"帕拉吉之盾",en:"Shield of Baradhi",ja:"パラージの盾",t:"weapon",era:"平成",y:2010,u:"赛罗",st:"诺亚赋予赛罗的终极铠甲。"});
+add("w_orbring",{n:"奥特圆环",en:"Orb Ring",ja:"オーブリング",t:"weapon",era:"新生代",y:2016,u:"欧布",st:"欧布变身器，融合卡片变形态。"});
+add("w_riser",{n:"捷德升华器",en:"Geed Riser",ja:"ジードライザー",t:"weapon",era:"新生代",y:2017,u:"捷德",st:"捷德的变身器，融合胶囊变形态。"});
+add("w_medal",{n:"奥特勋章",en:"Ultra Medals",ja:"ウルトラメダル",t:"weapon",era:"新生代",y:2020,u:"泽塔",st:"泽塔的变身道具。"});
+
+// CORE
+var CL="zh";
+var TXT={zh:{welcome:"欢迎来到奥特曼的世界",intro:"奥特曼是日本经典科幻英雄系列，1966年至今播出50多部作品。他们来自M78星云光之国，是保护地球的巨人战士。<br>本图谱收录数十位奥特曼、怪兽和武器装备，附评级系统和家族关系。点击卡片查看详情。",rating:"评级系统",era:"三大时代",era_showa:"昭和",showa:"昭和时代 1966-1980",showaDesc:"初代、赛文、杰克、艾斯、泰罗、雷欧、爱迪。大多来自光之国，风格严肃。",era_heisei:"平成",heisei:"平成时代 1996-2012",heiseiDesc:"迪迦、戴拿、盖亚。高斯、奈克瑟斯、梦比优斯。诺亚、雷杰多登场。",era_newgen:"新生代",newgen:"新生代 2013至今",newgenDesc:"银河、欧布、捷德、泰迦、Z、布莱泽。融合变身为主流，Z获星云赏。",rosterTitle:"角色图鉴",rosterDesc:"切换标签浏览奥特曼、怪兽宇宙人和武器装备。点击卡片查看详情。",familyTitle:"血缘树 · 奥特曼家族",familyDesc:"奥特曼系列中官方明确的亲子关系极少。金色实线=血缘，橙色虚线=师徒，红色虚线=遗传/合体。",rivalsTitle:"宿敌对战",rivalsDesc:"每位主要奥特曼都有一位命中注定的对手。点击卡牌查看详情。",quizTitle:"亲子问答游戏",quizDesc:"考考你对奥特曼的了解！答对越多称号越高。",search:"搜索角色中/英文名...",footer:"本页面为爱好者整理，角色版权归圆谷制作公司所有",tabs:["快速入门","角色图鉴","血缘树","宿敌对战","游戏问答"],stab:["奥特曼","怪兽宇宙人","武器装备"],ratingS:"传说级",ratingA:"顶尖级",ratingB:"优秀级",ratingC:"标准级",ratingD:"偏弱",ratingDesc:"每个角色根据官方设定和实际战力表现，被划分为 <b style=\"color:#ffd700\">S/A/B/C/D</b> 五个等级。评级综合考虑攻击力、防御力和特殊能力三个维度。S级为传说级存在（诺亚、奥特之王），D级为偏弱或搞笑角色。",ratingS_desc:"诺亚、奥特之王",ratingA_desc:"奥特之父、赛罗",ratingB_desc:"主力战士",tree_king:"光之国王族",tree_seven:"赛文家族",tree_belial:"贝利亚家族（堕落侧）",tree_l77:"L77王族",tree_rossoblu:"罗布兄弟",tree_mentor:"师徒传承",conn_blood:"血缘",conn_teacher:"师徒",conn_genetic:"遗传",conn_fusion:"合体",conn_marriage:"婚姻",quiz_score:"得分",quiz_combo:"连击",quiz_progress:"进度",quiz_next:"下一题",quiz_retry:"再来一次",quiz_best:"最高",q_prefix:"第",q_suffix:"题：",quiz_correct:"✅ 正确！",quiz_wrong:"❌ 错误！答案：",rating_label:"评级",skill_label:"技能",year_suffix:"年",tier5_title:"奥特之王认证 🔥",tier5_desc:"传说级！你是行走的奥特曼百科全书！",tier4_title:"光之国档案馆长 👑",tier4_desc:"接近满分！超越了大多数地球人！",tier3_title:"资深奥特研究员 💫",tier3_desc:"你可以胜任奥特曼百科了！",tier2_title:"奥特兄弟见习生 🌟",tier2_desc:"对奥特曼体系有了基本认知！",tier1_title:"宇宙警备队候补 ⭐",tier1_desc:"已经能认出几个了！再接再厉！",tier0_title:"光之国实习生 🌱",battle_title:"随机对战",battle_desc:"随机抽两位奥特曼，综合战力PK！",battle_win:"获胜",battle_again:"再来一局",tier0_desc:"刚入光之国，一切从零开始！",routeTitle:"🎬 新手推荐观看路线",routeHint:"不知道从哪部开始？四条路线，按你的偏好选一条入坑。",route1l:"🥇 经典入坑",route1n:"迪迦 Tiga (1996)",route1r:"最安全的起点。中国观众最熟悉的奥特曼。独立世界观无需背景知识，三形态变换开创玩法。第52话所有孩子为迪迦举起手电筒——平成最经典的集体记忆。",route2l:"🥈 当代首选",route2n:"泽塔 Z (2020)",route2r:"最短最精悍。2020年日本星云赏获奖。25话紧凑剧情，从半吊子成长为真正的战士。适合时间不多的你。",route3l:"🥉 全明星盛宴",route3n:"梦比优斯 Mebius (2006)",route3r:"六位昭和前辈每集轮流出场指导新人。最终话奥特兄弟全员集结——系列最壮观的全明星时刻。看完这部就认识所有昭和奥特曼了。",route4l:"🚀 独立新作",route4n:"布莱泽 Blazar (2023)",route4r:"最不像奥特曼的奥特曼。不会说话，用嘴咬身体撞的野性战士。人间体是已婚父亲——系列首次。独立宇宙无需任何前置知识。新鲜、野性、有温度。",eps_expand:"展开分集梗概 ▼",eps_collapse:"收起分集 ▲",eps_tiga:"52话 · 迪迦",eps_z:"25话 · 泽塔",eps_mebius:"50话 · 梦比优斯",eps_blazar:"25话 · 布莱泽",hostLabel:"人间体",worldviewTitle:"🌌 世界观速览",worldviewSub:"奥特曼来自哪里？",wv_m78:"M78星云·光之国",wv_m78_desc:"绝大多数奥特曼的故乡",wv_m78_chars:"佐菲、初代、赛文、泰罗、梦比优斯...",wv_l77:"L77星云·狮子座",wv_l77_desc:"已被毁灭的王国",wv_l77_chars:"雷欧、阿斯特拉",wv_o50:"O-50行星·战士之巅",wv_o50_desc:"攀登者获力量",wv_o50_chars:"欧布、风马",wv_ancient:"超古代地球·3000万年前",wv_ancient_desc:"光之巨人的遗迹",wv_ancient_chars:"迪迦、戴拿",wv_earth:"地球意志",wv_earth_desc:"地球本身的化身",wv_earth_chars:"盖亚(大地)、阿古茹(海洋)",shareBtn:"📤 分享给其他爱好者",feedbackBtn:"💬 给我提意见",bugLinkTxt:"🐛 发现错误？点此反馈"},en:{welcome:"Welcome to the World of Ultraman",intro:"Ultraman is a classic Japanese sci-fi hero series, airing over 50 titles since 1966. These giant warriors from the Land of Light (M78 Nebula) protect Earth from monsters and aliens.<br>This guide catalogs dozens of Ultramen, monsters, and weapons with a rating system and family relationships. Click any card for details.",rating:"Rating System",era:"Three Eras",era_showa:"Showa",showa:"Showa Era 1966-1980",showaDesc:"Ultraman, Seven, Jack, Ace, Taro, Leo, 80. Mostly from the Land of Light, serious tone.",era_heisei:"Heisei",heisei:"Heisei Era 1996-2012",heiseiDesc:"Tiga, Dyna, Gaia. Cosmos, Nexus, Mebius. Noa and Legend appear.",era_newgen:"New Generation",newgen:"New Generation 2013-present",newgenDesc:"Ginga, Orb, Geed, Taiga, Z, Blazar. Fusion transformations dominate. Z won the Seiun Award.",rosterTitle:"Character Gallery",rosterDesc:"Browse Ultramen, Kaiju & Aliens, and Weapons. Click cards for details.",familyTitle:"Bloodline · Ultra Family",familyDesc:"Very few parent-child relationships are officially confirmed in the Ultra series. Gold=bloodline, Orange=mentor, Red=genetic/fusion.",rivalsTitle:"Rivals",rivalsDesc:"Every major Ultraman has a destined opponent. Click cards for details.",quizTitle:"Quiz Challenge",quizDesc:"Test your Ultraman knowledge! The more correct answers, the higher your rank.",search:"Search characters (CN/EN)...",footer:"This is a fan-organized reference. All character rights belong to Tsuburaya Productions.",tabs:["Getting Started","Character Gallery","Bloodline","Rivals","Quiz"],stab:["Ultramen","Kaiju & Aliens","Weapons"],ratingS:"Legendary",ratingA:"Top Tier",ratingB:"Excellent",ratingC:"Standard",ratingD:"Below Avg",ratingDesc:"Each character is rated <b style=\"color:#ffd700\">S/A/B/C/D</b> based on official lore and combat feats across three dimensions: Attack, Defense, and Special Abilities. S = Legendary, D = Below Average.",ratingS_desc:"Noa, Ultraman King",ratingA_desc:"Father of Ultra, Zero",ratingB_desc:"Main Warriors",tree_king:"Royal Family of Light",tree_seven:"Seven Family",tree_belial:"Belial Family (Fallen)",tree_l77:"L77 Royalty",tree_rossoblu:"Rosso & Blu",tree_mentor:"Master & Apprentice",conn_blood:"Bloodline",conn_teacher:"Mentor",conn_genetic:"Genetic",conn_fusion:"Fusion",conn_marriage:"Marriage",quiz_score:"Score",quiz_combo:"Combo",quiz_progress:"Progress",quiz_next:"Next",quiz_retry:"Retry",quiz_best:"Best",q_prefix:"Q",q_suffix:": ",quiz_correct:"✅ Correct!",quiz_wrong:"❌ Wrong! Answer: ",rating_label:"Rating",skill_label:"Skills",year_suffix:"",tier5_title:"Ultraman King Certified 🔥",tier5_desc:"Legendary! You are a walking Ultraman encyclopedia!",tier4_title:"Land of Light Archivist 👑",tier4_desc:"Near perfect! Surpassed most Earthlings!",tier3_title:"Senior Ultra Researcher 💫",tier3_desc:"You can write an Ultraman encyclopedia!",tier2_title:"Ultra Brother Trainee 🌟",tier2_desc:"You have basic Ultraman knowledge!",tier1_title:"Space Guard Cadet ⭐",tier1_desc:"You recognize a few! Keep going!",tier0_title:"Land of Light Intern 🌱",battle_title:"Random Battle",battle_desc:"Two random Ultramen face off! Compare overall power.",battle_win:"wins",battle_again:"Battle Again",tier0_desc:"Just arrived, starting from zero!",routeTitle:"🎬 Recommended Viewing Route",routeHint:"Not sure where to start? Four routes, pick one.",route1l:"🥇 Classic Start",route1n:"Tiga (1996)",route1r:"The safest starting point. China best-known Ultraman. Standalone universe needs no background. Pioneered form-change mechanic. Episode 52: children worldwide gave Tiga their light — Heisei most iconic moment.",route2l:"🥈 Modern Pick",route2n:"Z (2020)",route2r:"Short and tight. 2020 Seiun Award winner — rare mainstream sci-fi recognition. 25 episodes of tight storytelling. Perfect if you are short on time but want quality.",route3l:"🥉 All-Star Feast",route3n:"Mebius (2006)",route3r:"Six Showa seniors guest-star each episode to mentor the rookie. Finale brings back EVERY previous Ultraman — the most spectacular moment in franchise history. Watch this and you will know all Showa Ultramen.",route4l:"🚀 Wild Card",route4n:"Blazar (2023)",route4r:"The least Ultraman-like Ultraman. No speech, fights by biting and body-slamming like a beast. Host is a married father — franchise first. Standalone universe, zero prior knowledge needed.",eps_expand:"Expand Episode Guide ▼",eps_collapse:"Collapse ▲",eps_tiga:"52eps · Tiga",eps_z:"25eps · Z",eps_mebius:"50eps · Mebius",eps_blazar:"25eps · Blazar",hostLabel:"Human Host",worldviewTitle:"🌌 World Overview",worldviewSub:"Where do Ultramen come from?",wv_m78:"M78 Nebula · Land of Light",wv_m78_desc:"Home of most Ultramen",wv_m78_chars:"Zoffy, Ultraman, Seven, Taro, Mebius...",wv_l77:"L77 Nebula · Leo Constellation",wv_l77_desc:"Destroyed kingdom",wv_l77_chars:"Leo, Astra",wv_o50:"Planet O-50 · Summit of Warriors",wv_o50_desc:"Climbers gain power",wv_o50_chars:"Orb, Fuma",wv_ancient:"Ancient Earth · 30 million years ago",wv_ancient_desc:"Ruins of Giants of Light",wv_ancient_chars:"Tiga, Dyna",wv_earth:"Earth's Will",wv_earth_desc:"Incarnation of the Earth itself",wv_earth_chars:"Gaia (Land), Agul (Ocean)",shareBtn:"📤 Share with fans",feedbackBtn:"💬 Give feedback",bugLinkTxt:"🐛 Found a bug? Report here"},ja:{welcome:"ウルトラマンの世界へ",intro:"ウルトラマンは1966年から50作品以上が放送されている日本の古典的SFヒーローシリーズです。彼らは光の国（M78星雲）から来た巨人戦士で、怪獣や宇宙人から地球を守ります。<br>このガイドでは、多数のウルトラマン、怪獣、武器を収録し、評価システムと家族関係を紹介します。カードをクリックして詳細をご覧ください。",rating:"評価システム",era:"三つの時代",era_showa:"昭和",showa:"昭和時代 1966-1980",showaDesc:"初代、セブン、ジャック、A、タロウ、レオ、80。主に光の国出身。",era_heisei:"平成",heisei:"平成時代 1996-2012",heiseiDesc:"ティガ、ダイナ、ガイア。コスモス、ネクサス、メビウス。ノア、レジェンド登場。",era_newgen:"ニュージェネレーション",newgen:"ニュージェネレーション 2013-現在",newgenDesc:"ギンガ、オーブ、ジード、タイガ、Z、ブレーザー。融合変身が主流。Zが星雲賞受賞。",rosterTitle:"キャラ図鑑",rosterDesc:"ウルトラマン、怪獣・宇宙人、武器を切り替えて閲覧。カードクリックで詳細表示。",familyTitle:"血縁樹 · ウルトラ家族",familyDesc:"シリーズで公式に明確化された親子関係は極めて少ない。金色=血縁、オレンジ=師弟、赤色=遺伝/融合。",rivalsTitle:"宿敵対戦",rivalsDesc:"主要なウルトラマンには運命の宿敵が存在する。カードクリックで詳細表示。",quizTitle:"親子クイズ",quizDesc:"ウルトラマンの知識をテスト！正解が多いほど称号が上がる。",search:"キャラ検索（中国語/英語）...",footer:"本ページはファンによる整理資料です。キャラクターの権利は円谷プロダクションに帰属します。",tabs:["入門紹介","キャラ図鑑","血縁樹","宿敵対戦","クイズ"],stab:["ウルトラマン","怪獣・宇宙人","武器"],ratingS:"伝説級",ratingA:"トップ級",ratingB:"優秀級",ratingC:"標準級",ratingD:"弱め",ratingDesc:"各キャラクターは公式設定と戦闘実績に基づき、攻撃力・防御力・特殊能力の3次元で<b style=\"color:#ffd700\">S/A/B/C/D</b>に評価。S=伝説級、D=弱め。",ratingS_desc:"ノア、ウルトラマンキング",ratingA_desc:"ウルトラの父、ゼロ",ratingB_desc:"主力戦士",tree_king:"光の国王族",tree_seven:"セブン家族",tree_belial:"ベリアル家族（堕落）",tree_l77:"L77王族",tree_rossoblu:"ロッソ＆ブル兄弟",tree_mentor:"師弟継承",conn_blood:"血縁",conn_teacher:"師弟",conn_genetic:"遺伝",conn_fusion:"融合",conn_marriage:"婚姻",quiz_score:"得点",quiz_combo:"コンボ",quiz_progress:"進捗",quiz_next:"次の問題",quiz_retry:"もう一度",quiz_best:"最高記録",q_prefix:"第",q_suffix:"問：",quiz_correct:"✅ 正解！",quiz_wrong:"❌ 不正解！答え：",rating_label:"評価",skill_label:"代表技",year_suffix:"年",tier5_title:"ウルトラマンキング認定 🔥",tier5_desc:"伝説級！あなたは歩くウルトラマン百科事典！",tier4_title:"光の国アーキビスト 👑",tier4_desc:"満点に近い！ほとんどの地球人を超えた！",tier3_title:"シニアウルトラ研究員 💫",tier3_desc:"ウルトラマン百科事典を書ける！",tier2_title:"ウルトラ兄弟見習い 🌟",tier2_desc:"ウルトラマン体系の基本を理解！",tier1_title:"宇宙警備隊候補 ⭐",tier1_desc:"いくつか知ってる！頑張って！",tier0_title:"光の国インターン 🌱",battle_title:"ランダム対戦",battle_desc:"ランダムに選ばれたウルトラマンが対決！",battle_win:"の勝ち",battle_again:"もう一回",tier0_desc:"光の国に到着したばかり、ゼロからスタート！",routeTitle:"🎬 初心者おすすめ視聴ルート",routeHint:"どこから見始める？四つのルートから選んでください。",route1l:"🥇 定番入門",route1n:"ティガ (1996)",route1r:"最も安全な出発点。中国で最も知られるウルトラマン。独立した世界観で前提知識不要。三形態変換を開拓。第52話——世界中の子供たちがティガに光を送った平成の最も象徴的なシーン。",route2l:"🥈 現代のおすすめ",route2n:"ゼット (2020)",route2r:"短くて濃い。2020年日本星雲賞受賞。全25話のコンパクトな展開で、半人前から真の戦士へと成長。時間がないけど質の高い作品を見たい人に最適。",route3l:"🥉 オールスター",route3n:"メビウス (2006)",route3r:"6人の昭和先輩が毎話交代で登場し新人を指導。最終話で歴代ウルトラマン全員が集結——シリーズ史上最も壮観な瞬間。これを見れば全ての昭和ウルトラマンがわかる。",route4l:"🚀 新感覚",route4n:"ブレーザー (2023)",route4r:"最もウルトラマンらしくないウルトラマン。喋らず、噛みつきと体当たりで戦う野性的な戦士。変身者は既婚の父親——シリーズ初。独立宇宙で前提知識ゼロ。新鮮で野性的で温かみがある。",eps_expand:"エピソード一覧を展開 ▼",eps_collapse:"折りたたむ ▲",eps_tiga:"52話 · ティガ",eps_z:"25話 · ゼット",eps_mebius:"50話 · メビウス",eps_blazar:"25話 · ブレーザー",hostLabel:"人間体",worldviewTitle:"🌌 世界観概要",worldviewSub:"ウルトラマンはどこから？",wv_m78:"M78星雲・光の国",wv_m78_desc:"ほとんどのウルトラマンの故郷",wv_m78_chars:"ゾフィー、初代、セブン、タロウ、メビウス...",wv_l77:"L77星雲・獅子座",wv_l77_desc:"滅ぼされた王国",wv_l77_chars:"レオ、アストラ",wv_o50:"O-50惑星・戦士の頂",wv_o50_desc:"登頂者が力を得る",wv_o50_chars:"オーブ、フーマ",wv_ancient:"超古代地球・3000万年前",wv_ancient_desc:"光の巨人の遺跡",wv_ancient_chars:"ティガ、ダイナ",wv_earth:"地球の意志",wv_earth_desc:"地球そのものの化身",wv_earth_chars:"ガイア(大地)、アグル(海洋)",shareBtn:"📤 ファンと共有",feedbackBtn:"💬 フィードバックを送る",bugLinkTxt:"🐛 バグを見つけたら報告"}};
+
+function t(k){return (TXT[CL]||TXT.zh)[k]||k;}
+function sl(l){CL=l;
+document.querySelectorAll(".lang-btn").forEach(function(b,i){b.classList.toggle("on",(i===0&&l==="zh")||(i===1&&l==="en")||(i===2&&l==="ja"));});
+// Update static text
+var E=function(id,key){var el=document.getElementById(id);if(el)el.innerHTML=t(key);};
+E("ibWelcome","welcome");E("ibIntro","intro");E("ibRating","rating");E("ibRatingDesc","ratingDesc");E("ibEra","era");E("ibShowa","showa");E("ibShowaDesc","showaDesc");E("ibHeisei","heisei");E("ibHeiseiDesc","heiseiDesc");E("ibNewgen","newgen");E("ibNewgenDesc","newgenDesc");E("ibRosterTitle","rosterTitle");E("ibRosterDesc","rosterDesc");E("ibFamilyTitle","familyTitle");E("ibFamilyDesc","familyDesc");E("ibRivalsTitle","rivalsTitle");E("ibRivalsDesc","rivalsDesc");E("ibQuizTitle","quizTitle");E("ibQuizDesc","quizDesc");E("ibFooter","footer");E("ibRouteTitle","routeTitle");E("ibRouteHint","routeHint");
+// Update tabs
+document.querySelectorAll(".tab-btn").forEach(function(b,i){var k=t("tabs");if(Array.isArray(k)&&k[i])b.textContent=k[i];});
+document.querySelectorAll(".sub-tab-btn").forEach(function(b,i){var k=t("stab");if(Array.isArray(k)&&k[i])b.textContent=k[i];});
+document.getElementById("sIn").placeholder=t("search");
+// Update rating section
+E("ibRatingS","ratingS");E("ibRatingA","ratingA");E("ibRatingB","ratingB");E("ibRatingC","ratingC");E("ibRatingD","ratingD");
+E("ibShareBtn","shareBtn");E("ibFeedbackBtn","feedbackBtn");E("ibBugLink","bugLinkTxt");
+E("ibRouteTitle","routeTitle");E("r1l","route1l");E("r1n","route1n");E("r1r","route1r");E("r2l","route2l");E("r2n","route2n");E("r2r","route2r");E("r3l","route3l");E("r3n","route3n");E("r3r","route3r");E("r4l","route4l");E("r4n","route4n");E("r4r","route4r");
+E("ibWVTitle","worldviewTitle");E("ibWVSub","worldviewSub");E("wv1t","wv_m78");E("wv1d","wv_m78_desc");E("wv1c","wv_m78_chars");E("wv2t","wv_l77");E("wv2d","wv_l77_desc");E("wv2c","wv_l77_chars");E("wv3t","wv_o50");E("wv3d","wv_o50_desc");E("wv3c","wv_o50_chars");E("wv4t","wv_ancient");E("wv4d","wv_ancient_desc");E("wv4c","wv_ancient_chars");E("wv5t","wv_earth");E("wv5d","wv_earth_desc");E("wv5c","wv_earth_chars");
+
+document.querySelectorAll(".tab-btn").forEach(function(btn){btn.addEventListener("click",function(){document.querySelectorAll(".tab-btn").forEach(function(b){b.classList.remove("on");});this.classList.add("on");document.querySelectorAll(".tab-page").forEach(function(p){p.classList.remove("on");});document.getElementById("tp-"+this.getAttribute("data-tab")).classList.add("on");});});
+document.querySelectorAll(".sub-tab-btn").forEach(function(btn){btn.addEventListener("click",function(){document.querySelectorAll(".sub-tab-btn").forEach(function(b){b.classList.remove("on");});this.classList.add("on");var t=this.getAttribute("data-stab");document.getElementById("grid-ultra").style.display=t==="ultra"?"grid":"none";document.getElementById("grid-monster").style.display=t==="monster"?"grid":"none";document.getElementById("grid-weapon").style.display=t==="weapon"?"grid":"none";});});
+
+renderAll();}
+function cName(c){return CL==="en"?c.en:CL==="ja"?(c.ja||c.n):c.n;}
+function sStars(r){var m={S:5,A:4,B:3,C:2,D:1};var n=m[r]||3;var s="";for(var i=0;i<5;i++)s+=i<n?"★":"☆";return s;}
+function rTag(r){return '<span class="rating-'+r+' rating-tag">'+r+'</span>';}
+function getImg(id){
+  var wm={w_beta:IMG.w_beta_img,w_slugger:IMG.w_slugger_img,w_bracelet:IMG.w_bracelet_img,w_spark:IMG.w_spark_img,w_paraji:IMG.w_paraji_img,w_orbring:IMG.w_orbring_img,w_riser:"",w_medal:IMG.w_medal_img};
+  if(wm[id]!==undefined)return wm[id]||"";
+  return IMG[id]||"";
+}
+
+function cardHTML(id){
+var c=CHAR[id];if(!c)return"";
+if(c.t==="weapon")return'<div class="char-card" onclick="showDetail(\''+id+'\')" style="text-align:center"><div class="ci" style="display:flex;align-items:center;justify-content:center;font-size:3em">'+(getImg(id)?'<img src="'+getImg(id)+'" style="max-width:100%;max-height:100%;object-fit:contain" onerror="this.style.display=\'none\';this.parentElement.textContent=\'🔧\'">':'🔧')+'</div><div class="cb"><h3>'+cName(c)+'</h3><div class="en">'+c.en+'</div><div style="font-size:.7em;color:#8899bb">'+c.u+' · '+c.y+'</div></div></div>';
+var sk=c.sk;var stars="";
+if(sk){stars='<div class="stars">';if(sk.a)stars+='<span>攻 '+rTag(sk.a.r)+sStars(sk.a.r)+'</span>';if(sk.d)stars+='<span>防 '+rTag(sk.d.r)+sStars(sk.d.r)+'</span>';if(sk.c)stars+='<span>特 '+rTag(sk.c.r)+sStars(sk.c.r)+'</span>';stars+='</div>';}
+return'<div class="'+(c.t==="monster"?"char-card monster":"char-card")+'" onclick="showDetail(\''+id+'\')"><img class="ci" src="'+getImg(id)+'" alt="'+c.n+'" loading="lazy" onerror="this.style.display=\'none\'"><div class="cb"><h3>'+cName(c)+'</h3><div class="en">'+c.en+'</div>'+stars+'</div></div>';}
+
+
+var ERA_CHARS={showa:["ultraman","seven","jack","ace","taro","leo","eighty","father","mother","zoffy","astra","yullian"],heisei:["tiga","dyna","gaia","agul","cosmos","justice","nexus","mebius","hikari","max","noa","legend","saga","zero","belial"],newgen:["ginga","x","orb","geed","rosso","blu","taiga","z","trigger","decker","blazar","arc","titas","fuma","reiga","ruebe","tregear"]};
+function showEraChars(era){
+  var chars=ERA_CHARS[era];if(!chars)return;
+  var h='<div style="padding:10px"><h3 style="color:#c9a84c;text-align:center;margin-bottom:12px">'+t("era_"+era)+' '+t("era")+'</h3><div class="card-grid">';
+  chars.forEach(function(id){h+=cardHTML(id);});
+  h+='</div></div>';
+  // Show in a popup overlay
+  document.getElementById("dCard").innerHTML='<button class="close" onclick="closeDetail()">&times;</button>'+h;
+  document.getElementById("dOverlay").classList.add("on");
+}
+
+function showDetail(id){
+var c=CHAR[id];if(!c)return;var sk=c.sk;
+var T=CL==="en"?{atk:"ATK",def:"DEF",spc:"SPC"}:CL==="ja"?{atk:"攻撃",def:"防御",spc:"特殊"}:{atk:"攻击",def:"防御",spc:"特殊"};
+var envT=CL==="en"?{"宇宙":"🌌 Space","森林":"🌲 Forest","城市":"🏙 City","海洋":"🌊 Ocean"}:CL==="ja"?{"宇宙":"🌌 宇宙","森林":"🌲 森林","城市":"🏙 都市","海洋":"🌊 海洋"}:{"宇宙":"🌌 宇宙","森林":"🌲 森林","城市":"🏙 城市","海洋":"🌊 海洋"};
+var envH=c.env?'<span class="env-tag env-'+({"宇宙":"space","森林":"forest","城市":"city","海洋":"ocean"}[c.env]||"space")+'">'+envT[c.env]+'</span>':"";
+var h='<button class="close" onclick="closeDetail()">&times;</button>';
+h+='<img class="di" src="'+getImg(id)+'" alt="'+c.n+'" onerror="this.style.display=\'none\'">';
+h+='<h2>'+cName(c)+'</h2><div class="de">'+c.en+'</div>'+envH+'<div class="ds">'+c.era+' · '+c.y+t("year_suffix")+'</div>';
+if(sk){h+='<table><tr><th>'+T.atk+'</th><th>'+t("rating_label")+'</th><th>'+t("skill_label")+'</th></tr>';
+if(sk.a)h+='<tr><td>⚔ '+T.atk+'</td><td>'+sStars(sk.a.r)+' '+rTag(sk.a.r)+'</td><td>'+(sk.a.m||[]).join("、")+'</td></tr>';
+if(sk.d)h+='<tr><td>🛡 '+T.def+'</td><td>'+sStars(sk.d.r)+' '+rTag(sk.d.r)+'</td><td>'+(sk.d.m||[]).join("、")+'</td></tr>';
+if(sk.c)h+='<tr><td>✨ '+T.spc+'</td><td>'+sStars(sk.c.r)+' '+rTag(sk.c.r)+'</td><td>'+(sk.c.m||[]).join("、")+'</td></tr>';
+h+='</table>';}
+var hostInfo=HOSTS[id];if(hostInfo){var hL=CL==="en"?"Human Host":CL==="ja"?"人間体":"人间体";var hT=hostInfo[CL]||hostInfo.zh||"";h+='<div class="d-host"><span class="d-host-label">'+hL+':</span> '+hT+'</div>';}
+var story=c.st;if(CL==='en'&&c.st_en)story=c.st_en;else if(CL==='ja'&&c.st_ja)story=c.st_ja;h+='<div class="dst">'+story+'</div>';if(c.ctrl)h+='<div style="margin-top:6px;padding:5px 10px;background:rgba(255,50,80,.06);border-left:2px solid #ff3355;border-radius:4px;font-size:.78em;color:#ff8899">🎮 '+c.ctrl+'</div>';
+if(c.f){var rel=[];
+var RL=CL==="en"?{spouse:"Spouse",father:"Father",mother:"Mother",child:"Child",brother:"Brother"}:CL==="ja"?{spouse:"配偶者",father:"父",mother:"母",child:"子",brother:"兄弟"}:{spouse:"配偶",father:"父亲",mother:"母亲",child:"子女",brother:"兄弟"};
+if(c.f.p&&!c.f.m)rel.push(RL.spouse+"："+(CHAR[c.f.p]?cName(CHAR[c.f.p]):"?"));else if(c.f.p)rel.push(RL.father+"："+(CHAR[c.f.p]?cName(CHAR[c.f.p]):"?"));
+if(c.f.m)rel.push(RL.mother+"："+(CHAR[c.f.m]?cName(CHAR[c.f.m]):"?"));
+if(c.f.c)rel.push(RL.child+"："+(c.f.c||[]).map(function(x){return CHAR[x]?cName(CHAR[x]):"?";}).join("、"));
+if(c.f.b)rel.push(RL.brother+"："+(CHAR[c.f.b]?cName(CHAR[c.f.b]):"?"));}
+document.getElementById("dCard").innerHTML=h;document.getElementById("dOverlay").classList.add("on");}
+function closeDetail(){document.getElementById("dOverlay").classList.remove("on");}
+
+function renderAll(){renderUltra();renderMonster();renderWeapon();renderFamily();renderRivals();renderQuiz();renderBattle();}
+function renderUltra(){var h="";for(var k in CHAR){if(CHAR[k].t!=="ultra")continue;h+=cardHTML(k);}document.getElementById("grid-ultra").innerHTML=h;}
+function renderMonster(){var h="";for(var k in CHAR){if(CHAR[k].t!=="monster")continue;h+=cardHTML(k);}document.getElementById("grid-monster").innerHTML=h;}
+function renderWeapon(){var h="";for(var k in CHAR){if(CHAR[k].t!=="weapon")continue;h+=cardHTML(k);}document.getElementById("grid-weapon").innerHTML=h;}
+
+function renderFamily(){
+var trees=[{k:"tree_king",r:[["father","mother"],["taro"],["taiga"]]},{k:"tree_seven",r:[["seven"],["zero"]]},{k:"tree_belial",r:[["belial"],["geed"]]},{k:"tree_l77",r:[["leo","astra"]]},{k:"tree_rossoblu",r:[["rosso","blu"],["ruebe"]]},{k:"tree_mentor",r:[["seven"],["leo"],["zero"],["z"]]}];
+var h="";trees.forEach(function(tr){h+='<div class="tree-card"><h3>'+t(tr.k)+'</h3>';tr.r.forEach(function(r,i){h+='<div class="tree-row">';r.forEach(function(id){var c=CHAR[id];if(!c)return;h+='<div class="tree-node" onclick="showDetail(\''+id+'\')"><img src="'+getImg(id)+'" alt="'+c.n+'" onerror="this.style.display=\'none\'"><div class="tn">'+cName(c)+'</div></div>';});h+='</div>';if(i<tr.r.length-1)h+='<div class="tree-connector">│</div>';});h+='</div>';});document.getElementById("familyArea").innerHTML=h;}
+
+function renderRivals(){
+var pairs=[["ultraman","zetton"],["ultraman","baltan"],["seven","king_joe"],["seven","eleking"],["jack","bemstar"],["jack","nackle"],["ace","yapool"],["taro","birdon"],["taro","tyrant"],["leo","magma"],["tiga","gatanothor"],["nexus","dark_zagi"],["mebius","empera"],["zero","belial"],["geed","belial"]];
+var RD={"ultraman|zetton":{zh:"首个击败奥特曼的存在",en:"First to defeat Ultraman",ja:"初めてウルトラマンを倒した存在"},"ultraman|baltan":{zh:"最经典宇宙人",en:"Most iconic alien",ja:"最も代表的な宇宙人"},"seven|king_joe":{zh:"可分解合体的无敌机器人",en:"Split-combine invincible robot",ja:"分解合体の無敵ロボット"},"seven|eleking":{zh:"标志性雷电长尾",en:"Iconic lightning tail",ja:"象徴的な電撃の尾"},"jack|bemstar":{zh:"腹部可吸收一切光线",en:"Absorbs all beams with its belly",ja:"腹部ですべての光線を吸収"},"jack|nackle":{zh:"研究奥特曼战术的策略大师",en:"Studied Ultraman's tactics",ja:"ウルトラマンの戦術を研究"},"ace|yapool":{zh:"超兽制造者·永恒宿敌",en:"Super-beast maker, eternal foe",ja:"超獣製造者・永遠の宿敵"},"taro|birdon":{zh:"击败佐菲的火山怪鸟",en:"Volcano bird that defeated Zoffy",ja:"ゾフィーを倒した火山怪鳥"},"taro|tyrant":{zh:"七只怪兽融合·连败五位奥特兄弟",en:"7-monster fusion, beat 5 Ultra Brothers",ja:"7体融合・5人のウルトラ兄弟を連破"},"leo|magma":{zh:"毁灭L77星云·灭族仇人",en:"Destroyed L77 Nebula, mortal enemy",ja:"L77星雲を破壊した因縁の敵"},"tiga|gatanothor":{zh:"克苏鲁黑暗支配者",en:"Cthulhu-like dark ruler",ja:"クトゥルフ風の暗黒支配者"},"nexus|dark_zagi":{zh:"诺亚的黑暗镜像",en:"Noa's dark mirror",ja:"ノアの暗黒の鏡像"},"mebius|empera":{zh:"光之国千年宿仇",en:"Land of Light's ancient nemesis",ja:"光の国の千年の宿敵"},"zero|belial":{zh:"终生宿敌·反复对决",en:"Lifelong rivals, recurring battles",ja:"生涯の宿敵・繰り返す決闘"},"geed|belial":{zh:"父子对决·亲手终结父亲",en:"Father-son duel, ended his own father",ja:"親子対決・自らの手で父を終わらせた"}};
+var h="";pairs.forEach(function(p){var hc=CHAR[p[0]],vc=CHAR[p[1]];if(!hc||!vc)return;var dk=p[0]+"|"+p[1];var rd=(RD[dk]||{zh:""})[CL]||RD[dk].zh;h+='<div class="duel-pair"><div class="duel-card" onclick="showDetail(\''+p[0]+'\')"><img class="dc-img" src="'+getImg(p[0])+'" alt="'+hc.n+'"><div class="dc-name">'+cName(hc)+'</div><div class="dc-en">'+hc.en+'</div></div><div class="vs-panel"><div class="vs-text">VS</div><div class="vs-desc">'+rd+'</div></div><div class="duel-card foe" onclick="showDetail(\''+p[1]+'\')"><img class="dc-img" src="'+getImg(p[1])+'" alt="'+vc.n+'"><div class="dc-name">'+cName(vc)+'</div><div class="dc-en">'+vc.en+'</div></div></div>';});document.getElementById("rivalsArea").innerHTML=h;}
+
+var qState={q:0,score:0,streak:0,best:parseInt(localStorage.getItem("uqbest")||"0")};
+var QUIZ=[{zh:{q:"诺亚奥特曼的评级是？",o:["S级传说","A级顶尖","B级优秀"]},en:{q:"What is Ultraman Noa's rating?",o:["S Legendary","A Top Tier","B Excellent"]},ja:{q:"ノアウルトラマンの評価は？",o:["S伝説級","Aトップ級","B優秀級"]},a:0},{zh:{q:"赛罗的父亲是谁？",o:["赛文","初代","泰罗"]},en:{q:"Who is Zero's father?",o:["Seven","Ultraman","Taro"]},ja:{q:"ゼロの父親は誰？",o:["セブン","初代","タロウ"]},a:0},{zh:{q:"泰罗的父亲是谁？",o:["奥特之父","佐菲","赛文"]},en:{q:"Who is Taro's father?",o:["Father of Ultra","Zoffy","Seven"]},ja:{q:"タロウの父親は誰？",o:["ウルトラの父","ゾフィー","セブン"]},a:0},{zh:{q:"迪迦是哪一年登场的？",o:["1996","1971","2006"]},en:{q:"When did Tiga debut?",o:["1996","1971","2006"]},ja:{q:"ティガは何年に登場？",o:["1996","1971","2006"]},a:0},{zh:{q:"泽塔是谁的弟子？",o:["赛罗","泰罗","雷欧"]},en:{q:"Who is Z's master?",o:["Zero","Taro","Leo"]},ja:{q:"ゼットの師匠は誰？",o:["ゼロ","タロウ","レオ"]},a:0},{zh:{q:"捷德的父亲是谁？",o:["贝利亚","赛文","泰罗"]},en:{q:"Who is Geed's father?",o:["Belial","Seven","Taro"]},ja:{q:"ジードの父親は誰？",o:["ベリアル","セブン","タロウ"]},a:0},{zh:{q:"击败初代奥特曼的怪兽是？",o:["杰顿","巴尔坦星人","加坦杰厄"]},en:{q:"Which monster defeated Ultraman?",o:["Zetton","Baltan","Gatanothor"]},ja:{q:"初代ウルトラマンを倒した怪獣は？",o:["ゼットン","バルタン星人","ガタノゾーア"]},a:0},{zh:{q:"奥特兄弟的大哥是谁？",o:["佐菲","初代","赛文"]},en:{q:"Who is the eldest Ultra Brother?",o:["Zoffy","Ultraman","Seven"]},ja:{q:"ウルトラ兄弟の長兄は？",o:["ゾフィー","初代","セブン"]},a:0},{zh:{q:"哪个奥特曼来自L77星云？",o:["雷欧","泰罗","赛文"]},en:{q:"Which Ultraman is from L77 Nebula?",o:["Leo","Taro","Seven"]},ja:{q:"L77星雲出身のウルトラマンは？",o:["レオ","タロウ","セブン"]},a:0},{zh:{q:"奈克瑟斯的真正形态是？",o:["诺亚","雷杰多","萨迦"]},en:{q:"What is Nexus's true form?",o:["Noa","Legend","Saga"]},ja:{q:"ネクサスの本当の姿は？",o:["ノア","レジェンド","サーガ"]},a:0},{zh:{q:"高斯奥特曼的独特原则是？",o:["不杀怪兽","最快最强","光线技之王"]},en:{q:"What is Cosmos's unique principle?",o:["No-kill policy","Fastest & Strongest","Beam master"]},ja:{q:"コスモスの独自の理念は？",o:["怪獣を殺さない","最速最強","光線技の王"]},a:0},{zh:{q:"谁给了赛罗帕拉吉之盾？",o:["诺亚","奥特之王","奥特之父"]},en:{q:"Who gave Zero the Shield of Baradhi?",o:["Noa","Ultraman King","Father of Ultra"]},ja:{q:"誰がゼロにパラージの盾を授けた？",o:["ノア","ウルトラマンキング","ウルトラの父"]},a:0},{zh:{q:"贝利亚最初是什么身份？",o:["光之国战士","怪兽","宇宙人"]},en:{q:"What was Belial originally?",o:["Land of Light warrior","Monster","Alien"]},ja:{q:"ベリアルは元々何だった？",o:["光の国戦士","怪獣","宇宙人"]},a:0},{zh:{q:"谁是光之国首席科学家？",o:["希卡利","佐菲","奥特之父"]},en:{q:"Who is the chief scientist of the Land of Light?",o:["Hikari","Zoffy","Father of Ultra"]},ja:{q:"光の国首席科学者は？",o:["ヒカリ","ゾフィー","ウルトラの父"]},a:0},{zh:{q:"2020年获星云赏的是？",o:["泽塔","泰迦","捷德"]},en:{q:"Who won the Seiun Award in 2020?",o:["Z","Taiga","Geed"]},ja:{q:"2020年に星雲賞を受賞したのは？",o:["Z","タイガ","ジード"]},a:0}];
+function getTier(s){var lv=0;if(s>=13)lv=5;else if(s>=10)lv=4;else if(s>=7)lv=3;else if(s>=5)lv=2;else if(s>=3)lv=1;return {level:lv,title:t("tier"+lv+"_title"),desc:t("tier"+lv+"_desc")};}
+
+function renderBattle(){
+  var a=document.getElementById("battleArea");if(!a){return;}
+  var ultras=[],rank={S:5,A:4,B:3,C:2,D:1};
+  for(var k in CHAR){var c=CHAR[k];if(c.t==="ultra"&&c.sk&&c.sk.a)ultras.push(k);}
+  var i1=Math.floor(Math.random()*ultras.length),i2=Math.floor(Math.random()*ultras.length);
+  while(i2===i1)i2=Math.floor(Math.random()*ultras.length);
+  var c1=CHAR[ultras[i1]],c2=CHAR[ultras[i2]];
+  if(!c1||!c2){a.innerHTML="Loading...";return;}
+  var score=function(c){return (rank[c.sk.a.r]||3)+(rank[(c.sk.d||{}).r]||2)+(rank[(c.sk.c||{}).r]||2);};
+  var s1=score(c1),s2=score(c2);
+  var w=s1>=s2?c1:c2,l=s1>=s2?c2:c1,wk=s1>=s2?ultras[i1]:ultras[i2],lk=s1>=s2?ultras[i2]:ultras[i1];
+  var stat=function(c){return (c.sk.a.r||"C")+"|"+(c.sk.d?c.sk.d.r:"C")+"|"+(c.sk.c?c.sk.c.r:"C");};
+  var h="";
+  h+="<h3 style=\"color:#c9a84c;margin-bottom:4px\">\u26a1 "+t("battle_title")+"</h3>";
+  h+="<p style=\"color:#8899bb;font-size:.78em;margin-bottom:10px\">"+t("battle_desc")+"</p>";
+  h+="<div class=\"battle-cards\">";
+  h+="<div class=\"battle-card\"><img src=\""+getImg(wk)+"\" alt=\""+c1.n+"\"><div class=\"bt-name\">"+cName(c1)+"</div><div class=\"bt-stat\">"+stat(c1)+"</div></div>";
+  h+="<div class=\"battle-vs\">VS</div>";
+  h+="<div class=\"battle-card\"><img src=\""+getImg(lk)+"\" alt=\""+c2.n+"\"><div class=\"bt-name\">"+cName(c2)+"</div><div class=\"bt-stat\">"+stat(c2)+"</div></div>";
+  h+="</div>";
+  h+="<div class=\"battle-result\"><b>"+cName(w)+"</b> "+t("battle_win")+"!</div>";
+  h+="<button onclick=\"renderBattle()\" style=\"background:linear-gradient(135deg,#3366ff,#ff3355);color:#fff;border:none;padding:10px 24px;border-radius:20px;cursor:pointer;font-weight:bold;font-size:.9em\">⚔ "+t("battle_again")+"</button>";
+  a.innerHTML=h;
+}
+
+
+function doSearch(){var q=document.getElementById("sIn").value.toLowerCase();document.querySelectorAll(".char-card").forEach(function(c){c.style.display=c.textContent.toLowerCase().indexOf(q)>=0?"":"none";});}
+function renderQuiz(){var a=document.getElementById("quizArea");if(!a)return;if(qState.q>=QUIZ.length){var ti=getTier(qState.score);a.innerHTML='<div style="font-size:2em;margin:16px 0">🏆</div><h2 style="color:#ffd700">'+ti.title+'</h2><p style="color:#8899bb">'+ti.desc+'</p><p style="color:#c9a84c;font-size:1.2em">'+t("quiz_score")+'：'+qState.score+' / '+QUIZ.length+'</p><p style="font-size:.8em;color:#556688">'+t("quiz_best")+'：'+qState.best+'</p><button onclick="qState={q:0,score:0,streak:0,best:qState.best};renderQuiz();">🔄 '+t("quiz_retry")+'</button>';return;}var q=QUIZ[qState.q];var ql=q[CL]||q.zh;var ti=getTier(qState.score);var h='<div style="margin-bottom:12px">'+t("quiz_score")+'：<b style="color:#ffd700">'+qState.score+'</b> | 🔥'+qState.streak+' | '+(qState.q+1)+'/'+QUIZ.length+'</div>';h+='<div style="font-size:.8em;color:#c9a84c;margin-bottom:6px">'+ti.title+'</div>';h+='<div style="font-size:1.1em;color:#fff;margin:12px 0">'+t("q_prefix")+(qState.q+1)+t("q_suffix")+ql.q+'</div>';ql.o.forEach(function(o,i){h+='<button onclick="answerQuiz('+i+')">'+o+'</button>';});a.innerHTML=h;}
+function answerQuiz(i){if(qState.answered)return;qState.answered=true;var q=QUIZ[qState.q];var ql=q[CL]||q.zh;var correct=i===q.a;if(correct){qState.score++;qState.streak++;if(qState.streak%3===0)qState.score++;}else{qState.streak=0;}var a=document.getElementById("quizArea");a.innerHTML='<div style="font-size:1.2em;margin:12px 0;color:'+(correct?"#44aa66":"#ff3355")+'">'+(correct?t("quiz_correct"):t("quiz_wrong")+ql.o[q.a])+'</div><button onclick="qState.q++;qState.answered=false;renderQuiz();">'+t("quiz_next")+' ▶</button>';if(qState.score>qState.best){qState.best=qState.score;localStorage.setItem("uqbest",qState.best);}}
+
+var EPS_ZH={
+  tiga:["光之巨人苏醒","石头的神话","恶魔的预言","再见了地球","怪兽出没的城市","第二次接触","降临到地球的外星人","万圣节的夜晚","等待怪兽的少女","封闭的游乐园","安魂曲","深海来的SOS","人类采集","被流放的目标","梦幻疾走","鬼怪复活","红与蓝的对决","哥尔赞的反击","奔向宇宙（上）","奔向宇宙（下）","出场！德班","大雾来了","恐龙们的星球","前进！怪兽探险队","恶魔的审判","彩虹般的怪兽魔境","看见了奥比克","泡沫的…瞬间","蓝色夜晚的记忆","怪兽动物园","袭击的GUTS基地","滋尔达中心的攻防","黑暗都市","南方海峡","沉睡的少女","超越时空的微笑","花","海市蜃楼","你好奥特曼","梦","少女消失的街道","地下鲨鱼","连影","至急·兼仓","生命永存","告别黑暗","月球来的逃亡者","飞得更高","星光战士（上）","星光战士（下）","黑暗的支配者","致闪耀的人们"],
+  z:["呐喊吧，我的名字","战士的觉悟","现场直播！怪兽运输大作战","二号机器人启动","第一顿怪兽大餐","归来的男人","陛下的勋章","神秘之光","未确认物质","宇宙海贼登场","特空3号·金古桥","呼喊的生命","勋章大集合","四次元狂想曲","战士的使命","站在眼前的威胁","贝利亚的魔剑","最后的勇者","最后的勇者（后篇）","最后的勇者（终篇）","D4","各自的明天","通往噩梦的序曲","走向灭亡的游戏","闪烁远方的新星"],
+  mebius:["命运的相遇","我们的翅膀","唯一的生命","伤痕累累的羁绊","逆袭！毒蛾的陷阱","深海异变","帆根岛的奇迹","战栗的捕食者","复仇的铠甲","GUYS的骄傲","母亲的奇迹","怪兽总攻击","风之少女","唯一的道路","不死鸟的营寨","剑豪！扎姆夏","誓约的羽翼","大海的勇者","孤高的战士","总监的留言","呼唤怪兽的宝珠","未来的日子","时空的海鸣","复活的亚波人","毒蛾的程序","飞翔的未远","激斗的霸者","木之美的宝物","离别的日子","约定的火焰","伙伴们的思念","怪兽使者的遗产","蓝火之女","没有故乡的男人","群兽的暴走","没有语言的伙伴","父亲的脊背","大海的勇鱼","无敌的妈妈","一人的乐园","回忆中的老师","旧友的来访","帝王的降临","迫近的暗黑魔铠","绝望的乐园","不死身的格罗扎姆","孤高的战士（后篇）","毁灭之光","心之彼岸","我们的星"],
+  blazar:["第一波攻势","代号布莱泽","其名为阿斯加隆","战斗的代价","山之吠","侵略的轰鸣","彩虹显现（前篇）","彩虹显现（后篇）","音之星","来自地底的恐怖","逃离","一起上吧","保险英雄","月下的记忆","身为一个生命体","恐怖来自地下","流浪者斩基尔","激震的彷徨","光与炎","虫鸣之夜","天空的激战","苏生的铗波","来访者（前篇）","来访者（后篇）","拥抱地球的勇士们"]};
+
+var EPS_EN={
+  tiga:["The Giant of Light Awakens","Myth of Stone","The Devil's Prophecy","Farewell Earth","City of Monsters","Second Contact","Alien Invasion","Halloween Night","The Waiting Girl","Abandoned Theme Park","Requiem","SOS from the Deep","Human Collection","Exiled Target","Dream Sprint","Ghost Returns","Red vs Blue","Golza Strikes Back","To Space Pt.1","To Space Pt.2","Enter Deban!","Heavy Fog","Dinosaur Planet","Monster Expedition","Devil's Trial","Rainbow Monster Realm","I See Obik","Bubble Moment","Blue Night Memory","Monster Zoo","GUTS Base Attack","Zelda Center Battle","Dark City","Southern Strait","Sleeping Girl","Smile Beyond Time","Flower","Mirage","Hello Ultraman","Dream","Girl Vanishes","Underground Shark","Linked Shadow","Urgent Kamakura","Life Eternal","Farewell Darkness","Lunar Fugitive","Fly Higher","Starlight Warrior Pt.1","Starlight Warrior Pt.2","Dark Dominator","To the Shining Ones"],
+  z:["Shout My Name","Warrior's Resolve","Live Monster Transport","Robot No.2 Start","First Kaiju Meal","The Returned Man","His Majesty's Medal","Mysterious Light","Unidentified Substance","Space Pirate Arrives","Special Air No.3 King Joe","Cry of Life","Medal Collection","Fourth-Dimension Fantasy","Warrior's Mission","The Threat Before Us","Belial's Demon Sword","The Last Brave Pt.1","The Last Brave Pt.2","The Last Brave Finale","D4","Their Tomorrow","Nightmare Prelude","Game of Destruction","A New Star Shines"],
+  mebius:["Destiny's Encounter","Our Wings","Only Life","Scarred Bonds","Counterattack!","Deep Sea Change","Miracle of Hanegashima","Dreaded Predator","Armor of Vengeance","Pride of GUYS","Mother's Miracle","Monster All-Out Attack","Wind Maiden","Only Path","Phoenix Fortress","Swordmaster Zamusha","Oath Wings","Sea Warrior","Lone Warrior","Chief's Message","Monster-Calling Jewel","Future Days","Sea Roar of Time","Yapool Returns","Moth Program","Fly to the Future","Fierce Champion","Konomi's Treasure","Day of Farewell","Flame of Promise","Comrades' Thoughts","Monster Tamer's Legacy","Blue Flame Girl","Man Without a Home","Herd Stampede","Silent Partner","Father's Back","Great Fish of the Sea","Invincible Mother","One-Man Paradise","Teacher in Memory","Old Friend's Visit","Emperor Arrives","Dark Armor Approaches","Paradise of Despair","Immortal Grozam","Lone Warrior Pt.2","Light of Destruction","Beyond the Heart","Our Star"],
+  blazar:["First Wave","Codename Blazar","Its Name Is Asgaron","Price of Battle","Mountain's Howl","Invasion Roar","Rainbow Appears Pt.1","Rainbow Appears Pt.2","Planet of Sound","Underground Terror","Escape","Let's Go Together","Insurance Hero","Memory Under the Moon","As a Life Form","Terror from Below","Wanderer Zangill","Trembling Wander","Light and Flame","Night of Insects","Sky Battle","Revived Pincer","The Visitor Pt.1","The Visitor Pt.2","Warriors Who Embrace the Earth"]};
+
+function getEps(key){return CL==="en"?EPS_EN[key]:EPS_ZH[key];}
+
+var HOSTS={
+  ultraman:{zh:"早田进",en:"Shin Hayata",ja:"ハヤタ・シン"},
+  seven:{zh:"诸星弹",en:"Dan Moroboshi",ja:"モロボシ・ダン"},
+  jack:{zh:"乡秀树",en:"Hideki Go",ja:"ゴ・ヒデキ"},
+  ace:{zh:"北斗星司 / 南夕子",en:"Seiji Hokuto / Yuko Minami",ja:"ホクト・セイジ / ミナミ・ユウコ"},
+  taro:{zh:"东光太郎",en:"Kotaro Higashi",ja:"ヒガシ・コタロウ"},
+  leo:{zh:"凤源",en:"Gen Otsuka",ja:"オオツカ・ゲン"},
+  eighty:{zh:"矢的猛",en:"Takeshi Yamato",ja:"ヤマト・タケシ"},
+  tiga:{zh:"真角大古",en:"Daigo Madoka",ja:"マドカ・ダイゴ"},
+  dyna:{zh:"飞鸟信",en:"Shin Asuka",ja:"アスカ・シン"},
+  gaia:{zh:"高山我梦",en:"Gamu Takayama",ja:"タカヤマ・ガム"},
+  agul:{zh:"藤宫博也",en:"Hiroya Fujimiya",ja:"フジミヤ・ヒロヤ"},
+  cosmos:{zh:"春野武藏",en:"Musashi Haruno",ja:"ハルノ・ムサシ"},
+  nexus:{zh:"孤门一辉",en:"Kazuki Komon",ja:"コモン・カズキ"},
+  mebius:{zh:"日比野未来",en:"Mirai Hibino",ja:"ヒビノ・ミライ"},
+  hikari:{zh:"芹泽和也",en:"Kazuya Serizawa",ja:"セリザワ・カズヤ"},
+  orb:{zh:"红凯",en:"Kai",ja:"カイ"},
+  z:{zh:"夏川春树",en:"Haruki Natsukawa",ja:"ナツカワ・ハルキ"},
+  blazar:{zh:"比留间弦人",en:"Gento Hiruma",ja:"ヒルマ・ゲント"},
+  trigger:{zh:"真中剑悟",en:"Kengo Manaka",ja:"マナカ・ケンゴ"},
+  decker:{zh:"明日见奏大",en:"Kanata Asumi",ja:"アスミ・カナタ"},
+  ginga:{zh:"礼堂光",en:"Hikaru Raido",ja:"ライドウ・ヒカル"},
+  x:{zh:"大空大地",en:"Daichi Ozora",ja:"オオゾラ・ダイチ"},
+  geed:{zh:"朝仓陆",en:"Riku Asakura",ja:"アサクラ・リク"},
+  taiga:{zh:"工藤优幸",en:"Yuki Kudo",ja:"クドウ・ユウキ"},
+  rosso:{zh:"凑活海",en:"Katsumi Minato",ja:"ミナト・カツミ"},
+  blu:{zh:"凑勇海",en:"Isami Minato",ja:"ミナト・イサミ"},
+  arc:{zh:"飞世优马",en:"Yuma",ja:"ユウマ"}
+};
+
+function sharePage(){
+  var url=window.location.href;
+  if(navigator.share){navigator.share({title:'ULTRABASE',url:url});}
+  else{navigator.clipboard.writeText(url).then(function(){alert(t("shareBtn")+'\n'+url);});}
+}
+
+function toggleEps(key,card){
+  var el=document.getElementById('eps-'+key);
+  if(!el){
+    var eps=getEps(key);if(!eps)return;
+    el=document.createElement('div');el.id='eps-'+key;el.className='eps-list open';
+    var h='';eps.forEach(function(e,i){h+='<div><span>'+(i+1)+'</span>'+e+'</div>';});
+    el.innerHTML=h;
+    card.appendChild(el);
+  }else{
+    el.classList.toggle('open');
+  }
+}
+
+// Init
+sl('zh');
+</script>
+</body>
+</html>
