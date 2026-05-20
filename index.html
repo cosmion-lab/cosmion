@@ -99,7 +99,7 @@ header p{color:#8899bb;font-size:1em;margin-top:4px}
 .cn-marriage{color:#ff69b4;font-size:1.2em;padding:2px 0;text-align:center}
 .cn-label{font-size:.6em;display:block;line-height:1.2}
 
-.duel-pair{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap;justify-content:center}
+.duel-pair{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:nowrap;justify-content:center}
 .duel-card{background:linear-gradient(145deg,#1a1a35,#12122a);border:2px solid #c9a84c;border-radius:14px;padding:14px;text-align:center;width:170px;cursor:pointer;transition:all .25s;box-shadow:0 0 18px rgba(201,168,76,.1)}
 .duel-card:hover{transform:translateY(-6px) scale(1.05);box-shadow:0 0 35px rgba(201,168,76,.3)}
 .duel-card.foe{border-color:#ff3355;box-shadow:0 0 18px rgba(255,50,80,.1)}
@@ -153,7 +153,23 @@ footer{text-align:center;padding:24px;border-top:1px solid rgba(100,150,255,.1);
 /* Host info in detail */
 .d-host{margin:10px 0 6px;padding:8px 14px;background:rgba(201,168,76,.1);border-left:3px solid #c9a84c;border-radius:6px;font-size:.88em;color:#e8d48b;clear:both;font-weight:500}
 .d-host-label{font-weight:600;margin-right:4px}
-@media(max-width:768px){.card-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}.char-card .ci{height:150px}.d-card .di{width:100px;height:120px}.duel-pair{flex-direction:row;gap:6px}.duel-card{width:140px;padding:10px}.duel-card .dc-img{width:60px;height:80px}.duel-card .dc-name{font-size:.78em}.duel-card .dc-en{font-size:.6em}.vs-text{font-size:1.5em}.battle-card{width:130px}.battle-card img{width:60px;height:80px}.bt-name{font-size:.8em}.bt-stat{font-size:.7em}}
+@media(max-width:768px){
+  .card-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+  .char-card .ci{height:150px}
+  .d-card .di{width:100px;height:120px}
+  .duel-pair{flex-direction:row!important;flex-wrap:nowrap!important;gap:4px}
+  .duel-card{width:130px!important;padding:8px!important}
+  .duel-card .dc-img{width:50px!important;height:70px!important}
+  .duel-card .dc-name{font-size:.72em!important}
+  .duel-card .dc-en{font-size:.58em!important}
+  .vs-panel{min-width:50px!important}
+  .vs-text{font-size:1.3em!important}
+  .battle-cards{flex-wrap:nowrap!important;gap:8px}
+  .battle-card{width:120px!important;padding:8px!important}
+  .battle-card img{width:55px!important;height:75px!important}
+  .bt-name{font-size:.75em!important}
+  .bt-stat{font-size:.65em!important}
+}
 </style>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
 </head>
